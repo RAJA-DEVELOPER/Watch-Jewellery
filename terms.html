@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Terms and Conditions — the legal terms governing use of the Maison Lumière website and services.">
+  <title>Terms & Conditions | Maison Lumière</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .legal-layout { display: grid; grid-template-columns: 260px 1fr; gap: 4rem; align-items: start; }
+    .legal-nav { position: sticky; top: calc(var(--navbar-height) + 2rem); }
+    .legal-nav a { display: block; padding: 0.625rem 0; font-size: 0.85rem; color: var(--text-muted); border-inline-start: 2px solid var(--border); padding-inline-start: 1rem; transition: all 0.2s; }
+    .legal-nav a:hover, .legal-nav a.active { color: var(--champagne-dark); border-color: var(--champagne-dark); }
+    .legal-content h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.75rem); margin-top: 3rem; margin-bottom: 1rem; color: var(--text-primary); }
+    .legal-content h2:first-child { margin-top: 0; }
+    .legal-content p, .legal-content li { font-size: 0.95rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem; }
+    .legal-content ul { padding-inline-start: 1.5rem; list-style: disc; }
+    .legal-content li { margin-bottom: 0.5rem; }
+    .legal-date { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--champagne-dark); margin-bottom: 2rem; }
+    @media (max-width: 900px) { .legal-layout { grid-template-columns: 1fr; } .legal-nav { position: static; } }
+  </style>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="page-loader__logo">Maison Lumière</div><div class="page-loader__bar"></div></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header>
+    <nav class="navbar scrolled" role="navigation" aria-label="Main navigation">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+        <ul class="navbar__nav" role="list">
+          <li><a href="index.html" class="navbar__nav-link">Home</a></li>
+          <li><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
+          <li><a href="about.html" class="navbar__nav-link">About</a></li>
+          <li><a href="services.html" class="navbar__nav-link">Services</a></li>
+          <li><a href="blog.html" class="navbar__nav-link">Journal</a></li>
+          <li><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+          <a href="contact.html" class="btn btn--primary btn--sm"><span>Contact</span></a>
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__mobile-menu" role="dialog">
+      <a href="index.html" class="navbar__mobile-link">Home</a>
+      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      <a href="about.html" class="navbar__mobile-link">About</a>
+      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      <div class="navbar__mobile-controls"><button class="toggle-btn" data-theme-toggle>Theme</button></div>
+    </div>
+  </header>
+
+  <main id="main-content" style="padding-top:var(--navbar-height)">
+    <section style="background:var(--espresso);padding-block:5rem 4rem;text-align:center" aria-label="Terms hero">
+      <div class="container">
+        <nav style="display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.75rem;color:rgba(247,243,234,0.4);margin-bottom:1.5rem" aria-label="Breadcrumb">
+          <a href="index.html" style="color:rgba(247,243,234,0.4);transition:color 0.2s">Home</a>
+          <span>/</span><span style="color:var(--champagne)">Terms &amp; Conditions</span>
+        </nav>
+        <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--ivory);font-style:italic" class="reveal">Terms &amp; Conditions</h1>
+        <p style="color:rgba(247,243,234,0.5);margin-top:1rem" class="reveal delay-1">The legal terms governing use of our website and services</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container--wide">
+        <div class="legal-layout">
+          <nav class="legal-nav" aria-label="Terms sections">
+            <a href="#acceptance" class="active">Acceptance of Terms</a>
+            <a href="#services-terms">Our Services</a>
+            <a href="#purchases">Purchases</a>
+            <a href="#returns">Returns & Cancellations</a>
+            <a href="#ip">Intellectual Property</a>
+            <a href="#liability">Limitation of Liability</a>
+            <a href="#governing">Governing Law</a>
+            <a href="#changes">Changes to Terms</a>
+          </nav>
+
+          <div class="legal-content reveal-right">
+            <p class="legal-date">Last Updated: 1 August 2026</p>
+
+            <section id="acceptance">
+              <h2>Acceptance of Terms</h2>
+              <p>By accessing or using the Maison Lumière website (the "Site") or by purchasing from our showrooms or online platforms, you agree to be bound by these Terms and Conditions ("Terms"). If you do not agree to these Terms in their entirety, please do not use our Site or services.</p>
+              <p>These Terms constitute a legally binding agreement between you and Maison Lumière Limited (Company No. 12345678, registered in England and Wales at 47 Bond Street, Mayfair, London W1S 1BT).</p>
+            </section>
+
+            <section id="services-terms">
+              <h2>Our Services</h2>
+              <p>Maison Lumière provides the following services, subject to these Terms:</p>
+              <ul>
+                <li>Sale of luxury watches, jewellery, and related accessories</li>
+                <li>Watch restoration and repair services</li>
+                <li>Jewellery valuation and authentication services</li>
+                <li>Bespoke jewellery commissions</li>
+                <li>Engraving and personalisation services</li>
+                <li>Gifting concierge services</li>
+              </ul>
+              <p>All services are subject to availability. We reserve the right to refuse service or decline orders at our discretion, including where we reasonably suspect fraudulent activity.</p>
+            </section>
+
+            <section id="purchases">
+              <h2>Purchases and Payment</h2>
+              <p>All prices displayed are in Pounds Sterling (GBP) unless otherwise stated, and include VAT where applicable. We accept payment by bank transfer, all major credit and debit cards, and approved finance arrangements.</p>
+              <p>A purchase is confirmed only upon our written confirmation and receipt of full payment (or approved finance agreement). Title to goods passes to you upon full payment and physical delivery or collection.</p>
+              <p>For orders above £50,000, additional identity verification may be required in compliance with UK anti-money laundering regulations (the Proceeds of Crime Act 2002 and Money Laundering Regulations 2017).</p>
+              <p>Currency exchange rates and international taxes are the responsibility of the buyer for orders placed from outside the UK.</p>
+            </section>
+
+            <section id="returns">
+              <h2>Returns, Cancellations, and Refunds</h2>
+              <p>We are committed to your complete satisfaction. Our returns policy is as follows:</p>
+              <ul>
+                <li><strong>Standard purchases:</strong> Items may be returned within 14 days of receipt if unworn, in original condition, with all documentation and packaging. A full refund will be issued within 14 business days.</li>
+                <li><strong>Personalised/bespoke items:</strong> Items that have been engraved, resized, or specially created to your specifications are non-refundable unless faulty.</li>
+                <li><strong>Service cancellations:</strong> Repair and service bookings may be cancelled without charge up to 48 hours prior to the appointment.</li>
+                <li><strong>Finance agreements:</strong> Subject to the applicable credit agreement and Consumer Credit Act 1974.</li>
+              </ul>
+              <p>To initiate a return, please contact us at <a href="mailto:returns@maisonlumiere.com" style="color:var(--champagne-dark)">returns@maisonlumiere.com</a> with your order reference.</p>
+            </section>
+
+            <section id="ip">
+              <h2>Intellectual Property</h2>
+              <p>All content on this Site — including text, images, photography, video, design, trademarks, and the "Maison Lumière" name — is the property of Maison Lumière Limited or its licensors and is protected by applicable copyright, trademark, and intellectual property laws.</p>
+              <p>You may not reproduce, distribute, modify, or create derivative works of any content without our prior written consent.</p>
+            </section>
+
+            <section id="liability">
+              <h2>Limitation of Liability</h2>
+              <p>To the fullest extent permitted by applicable law, Maison Lumière shall not be liable for any indirect, incidental, special, consequential, or exemplary damages arising from your use of our Site or services, including loss of profits, data, or goodwill.</p>
+              <p>Our total aggregate liability to you in connection with any claim shall not exceed the amount paid by you for the specific product or service giving rise to the claim.</p>
+              <p>Nothing in these Terms limits our liability for death or personal injury caused by our negligence, fraud, or fraudulent misrepresentation, or any liability that cannot be excluded by law.</p>
+            </section>
+
+            <section id="governing">
+              <h2>Governing Law and Jurisdiction</h2>
+              <p>These Terms are governed by and construed in accordance with the laws of England and Wales. Any disputes arising from or in connection with these Terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+              <p>For consumers resident in Scotland, Northern Ireland, or the EU, applicable mandatory consumer protection laws of your jurisdiction may also apply.</p>
+            </section>
+
+            <section id="changes">
+              <h2>Changes to These Terms</h2>
+              <p>We reserve the right to update these Terms at any time. Material changes will be communicated by prominent notice on our Site. Your continued use of the Site or our services following notification of changes constitutes acceptance of the revised Terms.</p>
+              <p>For questions about these Terms, please contact our legal team at <a href="mailto:legal@maisonlumiere.com" style="color:var(--champagne-dark)">legal@maisonlumiere.com</a>.</p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--teal" aria-label="Terms summary">
+      <div class="container">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem" class="reveal">
+          <span class="eyebrow eyebrow--light">Questions?</span>
+          <h2 class="section-title" style="color:var(--ivory)">We're Here<br><em style="font-style:italic;color:var(--champagne)">to Help</em></h2>
+          <p style="color:rgba(247,243,234,0.6);max-width:480px;line-height:1.75">If you have any questions about our terms or need clarification on any aspect of our policies, our team is always happy to assist.</p>
+          <a href="contact.html" class="btn btn--primary"><span>Contact Our Team</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand"><a href="index.html" class="footer__brand-logo">Maison Lumière</a><p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p></div>
+        <div><h3 class="footer__col-title">Legal</h3><ul class="footer__nav"><li><a href="privacy.html" class="footer__nav-link">Privacy Policy</a></li><li><a href="terms.html" class="footer__nav-link">Terms &amp; Conditions</a></li><li><a href="sitemap.html" class="footer__nav-link">Sitemap</a></li></ul></div>
+        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">About</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
+        <div></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p><nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a><a href="sitemap.html" class="footer__legal-link">Sitemap</a></nav></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast-container" aria-live="polite"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

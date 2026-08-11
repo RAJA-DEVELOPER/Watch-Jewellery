@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Maison Lumière Journal — stories of extraordinary watches, jewellery, craftsmanship, and the luxury of time.">
+  <title>The Journal | Maison Lumière</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: var(--space-10); align-items: start; }
+    .blog-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+    .blog-featured { margin-bottom: var(--space-8); }
+    .blog-featured-card { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: var(--radius-xl); overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); min-height: 400px; }
+    .blog-featured-card__media img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-featured-card__body { padding: clamp(2rem,4vw,3.5rem); display: flex; flex-direction: column; justify-content: center; gap: 1.25rem; }
+    .sidebar { position: sticky; top: calc(var(--navbar-height) + 2rem); display: flex; flex-direction: column; gap: 2.5rem; }
+    .sidebar-widget { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: var(--space-6); }
+    .sidebar-widget__title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--champagne-dark); margin-bottom: 1.25rem; }
+    .category-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .category-tag { padding: 0.4rem 0.875rem; border: 1px solid var(--border); border-radius: 9999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: all 0.2s; color: var(--text-muted); }
+    .category-tag:hover, .category-tag.active { background: var(--champagne); border-color: var(--champagne); color: var(--obsidian); }
+    .recent-post { display: flex; gap: 1rem; padding-block: 0.875rem; border-bottom: 1px solid var(--border); }
+    .recent-post:last-child { border-bottom: none; }
+    .recent-post__img { width: 60px; height: 60px; object-fit: cover; border-radius: var(--radius-md); flex-shrink: 0; }
+    .recent-post__title { font-family: var(--font-display); font-size: 0.9rem; line-height: 1.3; transition: color 0.2s; }
+    .recent-post:hover .recent-post__title { color: var(--champagne-dark); }
+    .recent-post__date { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem; }
+    @media (max-width: 1000px) { .blog-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+    @media (max-width: 768px) { .blog-featured-card { grid-template-columns: 1fr; } .blog-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="page-loader__logo">Maison Lumière</div><div class="page-loader__bar"></div></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header>
+    <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+        <ul class="navbar__nav" role="list">
+          <li><a href="index.html" class="navbar__nav-link">Home</a></li>
+          <li><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
+          <li><a href="about.html" class="navbar__nav-link">About</a></li>
+          <li><a href="services.html" class="navbar__nav-link">Services</a></li>
+          <li><a href="blog.html" class="navbar__nav-link active">Journal</a></li>
+          <li><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+          <button class="toggle-btn" data-rtl-toggle>RTL</button>
+          <a href="contact.html" class="btn btn--primary btn--sm"><span>Book Visit</span></a>
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__mobile-menu" role="dialog">
+      <a href="index.html" class="navbar__mobile-link">Home</a>
+      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      <a href="about.html" class="navbar__mobile-link">About</a>
+      <a href="services.html" class="navbar__mobile-link">Services</a>
+      <a href="blog.html" class="navbar__mobile-link">Journal</a>
+      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      <div class="navbar__mobile-controls">
+        <button class="toggle-btn" data-theme-toggle><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>Theme</button>
+        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="page-hero" aria-label="Journal hero">
+      <div class="page-hero__bg"><img src="assets/images/blog-hero-journal.png" alt="Luxury watches" loading="eager"></div>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__content">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="page-hero__breadcrumb-sep">/</span>
+          <span class="page-hero__breadcrumb-current">The Journal</span>
+        </nav>
+        <h1 class="page-hero__title reveal">The Journal</h1>
+        <p class="page-hero__subtitle reveal delay-1">Stories of extraordinary watches, jewellery, craftsmanship, and the luxury of time.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: FEATURED ARTICLE -->
+    <section class="section" aria-labelledby="featured-blog-title">
+      <div class="container container--wide">
+        <div class="section-header reveal">
+          <span class="eyebrow">Editor's Pick</span>
+          <h2 class="section-title" id="featured-blog-title" style="margin-top:1rem">Featured<br><em style="font-style:italic">Article</em></h2>
+        </div>
+        <div class="blog-featured reveal delay-1">
+          <a href="blog-detail.html" class="blog-featured-card">
+            <div class="blog-featured-card__media zoom-container">
+              <img src="assets/images/blog-featured-tourbillon.png" alt="The Art of Tourbillon" loading="lazy">
+            </div>
+            <div class="blog-featured-card__body">
+              <span class="blog-card__tag">Horology</span>
+              <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2.25rem);line-height:1.2">The Tourbillon: Why Watchmaking's Greatest Achievement Defies the Digital Age</h2>
+              <p style="color:var(--text-muted);line-height:1.7;font-size:0.9rem">In an era of atomic-precise quartz and GPS-synced smartwatches, why do the world's most discerning collectors still pay six figures for a mechanical complication that barely improves accuracy? The answer lies in the soul of horology itself.</p>
+              <div style="display:flex;align-items:center;gap:0.75rem;font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem">
+                <span>Sir Edmund Ashworth</span>
+                <div style="width:3px;height:3px;border-radius:50%;background:var(--text-muted)"></div>
+                <span>August 5, 2026</span>
+                <div style="width:3px;height:3px;border-radius:50%;background:var(--text-muted)"></div>
+                <span>8 min read</span>
+              </div>
+              <span class="btn btn--teal btn--sm" style="align-self:flex-start;margin-top:0.5rem"><span>Read Article</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: BLOG GRID + SIDEBAR -->
+    <section class="section" style="background:var(--bg-secondary);padding-top:0" aria-labelledby="articles-title">
+      <div class="container container--wide">
+        <div class="blog-layout">
+          <!-- Blog Grid -->
+          <div>
+            <h2 class="reveal" id="articles-title" style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:2rem">Latest <em style="font-style:italic">Articles</em></h2>
+            <div class="blog-grid">
+              <a href="blog-detail.html" class="blog-card reveal delay-1">
+                <div class="blog-card__media"><img src="assets/images/blog-post-1-diamond.png" alt="Diamond article" loading="lazy"></div>
+                <div class="blog-card__body">
+                  <span class="blog-card__tag">High Jewellery</span>
+                  <h3 class="blog-card__title">The Four Cs Reimagined: How Modern Gemology Goes Beyond Clarity</h3>
+                  <p class="blog-card__excerpt">Beyond cut, colour, clarity, and carat — today's sophisticated buyers are asking deeper questions about provenance, origin, and ethical sourcing...</p>
+                  <div class="blog-card__meta"><span>Lady Caroline Ashworth</span><div class="blog-card__meta-dot"></div><span>July 28, 2026</span><div class="blog-card__meta-dot"></div><span>6 min</span></div>
+                </div>
+              </a>
+              <a href="blog-detail.html" class="blog-card reveal delay-2">
+                <div class="blog-card__media"><img src="assets/images/blog-post-2-gold.png" alt="Gold investment article" loading="lazy"></div>
+                <div class="blog-card__body">
+                  <span class="blog-card__tag">Investment</span>
+                  <h3 class="blog-card__title">Why Gold Jewellery Remains the Wisest Luxury Investment of 2026</h3>
+                  <p class="blog-card__excerpt">As global markets fluctuate, high-quality 18k gold pieces continue to appreciate — combining aesthetic pleasure with financial resilience...</p>
+                  <div class="blog-card__meta"><span>James Whitfield</span><div class="blog-card__meta-dot"></div><span>July 14, 2026</span><div class="blog-card__meta-dot"></div><span>5 min</span></div>
+                </div>
+              </a>
+              <a href="blog-detail.html" class="blog-card reveal delay-3">
+                <div class="blog-card__media"><img src="assets/images/blog-post-3-gifting.png" alt="Gifting guide" loading="lazy"></div>
+                <div class="blog-card__body">
+                  <span class="blog-card__tag">Gifting Guide</span>
+                  <h3 class="blog-card__title">The Art of Gifting: 10 Timepieces That Will Move Anyone to Tears</h3>
+                  <p class="blog-card__excerpt">The most meaningful gifts transcend their monetary value. Here are our curators' ten most emotionally resonant timepieces for 2026...</p>
+                  <div class="blog-card__meta"><span>Editorial Team</span><div class="blog-card__meta-dot"></div><span>July 2, 2026</span><div class="blog-card__meta-dot"></div><span>7 min</span></div>
+                </div>
+              </a>
+              <a href="blog-detail.html" class="blog-card reveal delay-4">
+                <div class="blog-card__media"><img src="assets/images/blog-post-4-vault.png" alt="Showroom experience" loading="lazy"></div>
+                <div class="blog-card__body">
+                  <span class="blog-card__tag">Experience</span>
+                  <h3 class="blog-card__title">Behind Closed Doors: A Private Tour of Our Bond Street Atelier</h3>
+                  <p class="blog-card__excerpt">Step beyond the showroom floor and into the heart of Maison Lumière — the private consultation suites, the repair workshop, the vault...</p>
+                  <div class="blog-card__meta"><span>Amira Al-Rashid</span><div class="blog-card__meta-dot"></div><span>June 18, 2026</span><div class="blog-card__meta-dot"></div><span>5 min</span></div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="sidebar" aria-label="Blog sidebar">
+            <div class="sidebar-widget reveal delay-1">
+              <h3 class="sidebar-widget__title">Browse by Category</h3>
+              <div class="category-tags" data-filter-group>
+                <button class="category-tag active" data-filter="all">All</button>
+                <button class="category-tag" data-filter="horology">Horology</button>
+                <button class="category-tag" data-filter="jewellery">High Jewellery</button>
+                <button class="category-tag" data-filter="investment">Investment</button>
+                <button class="category-tag" data-filter="gifting">Gifting</button>
+                <button class="category-tag" data-filter="experience">Experience</button>
+              </div>
+            </div>
+            <div class="sidebar-widget reveal delay-2">
+              <h3 class="sidebar-widget__title">Recent Articles</h3>
+              <a href="blog-detail.html" class="recent-post">
+                <img class="recent-post__img" src="assets/images/blog-recent-1-tourbillon.png" alt="Tourbillon article" loading="lazy">
+                <div><p class="recent-post__title">The Tourbillon: Why It Defies the Digital Age</p><p class="recent-post__date">August 5, 2026</p></div>
+              </a>
+              <a href="blog-detail.html" class="recent-post">
+                <img class="recent-post__img" src="assets/images/blog-recent-2-diamond.png" alt="Diamond article" loading="lazy">
+                <div><p class="recent-post__title">The Four Cs Reimagined</p><p class="recent-post__date">July 28, 2026</p></div>
+              </a>
+              <a href="blog-detail.html" class="recent-post">
+                <img class="recent-post__img" src="assets/images/blog-recent-3-gold.png" alt="Gold investment" loading="lazy">
+                <div><p class="recent-post__title">Gold Jewellery: The Wisest Investment of 2026</p><p class="recent-post__date">July 14, 2026</p></div>
+              </a>
+            </div>
+            <div class="sidebar-widget reveal delay-3">
+              <h3 class="sidebar-widget__title">Join Our Journal</h3>
+              <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.65;margin-bottom:1rem">Receive exclusive articles and private sale previews direct to your inbox.</p>
+              <form class="newsletter-form" style="flex-direction:column;gap:0.75rem" aria-label="Newsletter">
+                <input type="email" class="form-control" placeholder="Your email address" aria-label="Email" required>
+                <button type="submit" class="btn btn--primary btn--sm" style="width:100%"><span>Subscribe</span></button>
+              </form>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CATEGORIES FILTER -->
+    <section class="section" aria-labelledby="archive-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Browse by Subject</span>
+          <h2 class="section-title" id="archive-title">Explore the<br><em style="font-style:italic">Archive</em></h2>
+        </div>
+        <div class="grid-3">
+          <div class="editorial-card reveal delay-1" style="min-height:240px">
+            <div class="editorial-card__bg"><img src="assets/images/blog-cat-horology.png" alt="Horology" loading="lazy"></div>
+            <div class="editorial-card__overlay"></div>
+            <div class="editorial-card__body">
+              <p class="editorial-card__category">Category</p>
+              <h3 class="editorial-card__title" style="font-size:1.5rem">Horology</h3>
+              <a href="blog.html" class="editorial-card__cta">12 Articles <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </div>
+          <div class="editorial-card reveal delay-2" style="min-height:240px">
+            <div class="editorial-card__bg"><img src="assets/images/blog-cat-jewellery.png" alt="Jewellery" loading="lazy"></div>
+            <div class="editorial-card__overlay"></div>
+            <div class="editorial-card__body">
+              <p class="editorial-card__category">Category</p>
+              <h3 class="editorial-card__title" style="font-size:1.5rem">High Jewellery</h3>
+              <a href="blog.html" class="editorial-card__cta">9 Articles <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </div>
+          <div class="editorial-card reveal delay-3" style="min-height:240px">
+            <div class="editorial-card__bg"><img src="assets/images/blog-cat-gifting.png" alt="Gifting" loading="lazy"></div>
+            <div class="editorial-card__overlay"></div>
+            <div class="editorial-card__body">
+              <p class="editorial-card__category">Category</p>
+              <h3 class="editorial-card__title" style="font-size:1.5rem">Gifting &amp; Lifestyle</h3>
+              <a href="blog.html" class="editorial-card__cta">7 Articles <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: NEWSLETTER -->
+    <section class="section section--teal" aria-labelledby="journal-newsletter-title">
+      <div class="container">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem" class="reveal">
+          <span class="eyebrow eyebrow--light">The Private List</span>
+          <h2 class="section-title" id="journal-newsletter-title" style="color:var(--ivory)">Never Miss a<br><em style="font-style:italic;color:var(--champagne)">Story</em></h2>
+          <p style="color:rgba(247,243,234,0.6);max-width:480px;line-height:1.75">Subscribe to The Journal — delivered fortnightly to the inboxes of our most thoughtful readers.</p>
+          <form class="newsletter-form" aria-label="Journal newsletter">
+            <input type="email" class="form-control" placeholder="Your email address" aria-label="Email" required>
+            <button type="submit" class="btn btn--primary"><span>Subscribe</span></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: SOCIAL PROOF FOOTER -->
+    <section class="section section--dark" aria-label="Social and brand section">
+      <div class="container">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:2rem" class="reveal">
+          <p style="font-family:var(--font-display);font-size:clamp(1.25rem,2.5vw,2rem);font-style:italic;color:var(--ivory);max-width:600px;line-height:1.4">"The finest writing on the art of fine watchmaking and jewellery available anywhere online."</p>
+          <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne-dark)">— WatchPro Magazine, 2025</p>
+          <div class="footer__social" style="margin-top:0.5rem">
+            <a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand"><a href="index.html" class="footer__brand-logo">Maison Lumière</a><p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+        <div><h3 class="footer__col-title">Collections</h3><ul class="footer__nav"><li><a href="index.html" class="footer__nav-link">Luxury Watches</a></li><li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li><li><a href="services.html" class="footer__nav-link">Services</a></li></ul></div>
+        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">Our Story</a></li><li><a href="blog.html" class="footer__nav-link">The Journal</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
+        <div><h3 class="footer__col-title">Newsletter</h3><form class="newsletter-form" style="flex-direction:column;gap:0.75rem"><input type="email" class="form-control" placeholder="Your email" aria-label="Email" required><button type="submit" class="btn btn--primary btn--sm"><span>Join</span></button></form></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p><nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a><a href="sitemap.html" class="footer__legal-link">Sitemap</a></nav></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast-container" aria-live="polite"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

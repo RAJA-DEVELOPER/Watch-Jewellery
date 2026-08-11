@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison Lumière — Ultra-luxury watch and jewellery showroom. Explore exquisite Swiss timepieces, diamond collections, gold and platinum jewellery from the world's finest maisons.">
+  <meta name="keywords" content="luxury watches, diamond jewellery, Swiss watches, gold jewellery, platinum, engagement rings, luxury gifts, watch repair">
+  <meta property="og:title" content="Maison Lumière | Ultra-Luxury Watch & Jewellery">
+  <meta property="og:description" content="Where time meets timelessness. Explore our curated collection of the world's finest watches and jewellery.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="canonical" href="index.html">
+  <title>Maison Lumière | Ultra-Luxury Watch & Jewellery Showroom</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+
+  <style>
+    /* ── Page-specific styles ── */
+
+    /* Collections grid */
+    .collections-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: var(--space-5);
+    }
+    .collections-grid .editorial-card:first-child {
+      grid-row: 1 / 3;
+      min-height: 620px;
+    }
+    .collections-grid .editorial-card:not(:first-child) {
+      min-height: 290px;
+    }
+
+    /* New Arrivals */
+    .arrivals-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-5);
+    }
+
+    /* CTA section */
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+      padding-block: clamp(5rem, 10vw, 9rem);
+      background: var(--teal);
+    }
+
+    .cta-section__deco-1 {
+      position: absolute;
+      top: -200px;
+      inset-inline-end: -100px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(232,211,162,0.08);
+      pointer-events: none;
+    }
+
+    .cta-section__deco-2 {
+      position: absolute;
+      bottom: -250px;
+      inset-inline-start: -150px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(232,211,162,0.06);
+      pointer-events: none;
+    }
+
+    /* Scroll progress bar */
+    .scroll-progress-bar {
+      position: fixed;
+      top: var(--navbar-height);
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(232,211,162,0.1);
+      z-index: var(--z-sticky);
+    }
+
+    .scroll-progress {
+      height: 100%;
+      background: linear-gradient(90deg, var(--champagne-dark), var(--champagne));
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* Gifting section */
+    .gifting-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 600px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+
+    .gifting-split__media {
+      position: relative;
+    }
+
+    .gifting-split__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gifting-split__content {
+      padding: clamp(3rem, 5vw, 5rem);
+      background: var(--espresso);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--space-6);
+    }
+
+    /* Tslider dots */
+    .tslider-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(247,243,234,0.2);
+      border: none;
+      cursor: pointer;
+      transition: all var(--duration-base) var(--ease-luxury);
+      padding: 0;
+    }
+
+    .tslider-dot.active {
+      background: var(--champagne);
+      width: 24px;
+      border-radius: var(--radius-full);
+    }
+
+    @media (max-width: 1100px) {
+      .arrivals-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .collections-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: unset;
+      }
+      .collections-grid .editorial-card:first-child {
+        grid-row: unset;
+        min-height: 380px;
+      }
+      .gifting-split {
+        grid-template-columns: 1fr;
+      }
+      .gifting-split__media {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .arrivals-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" aria-hidden="true">
+    <div class="page-loader__logo">Maison Lumière</div>
+    <div class="page-loader__sub">Since 1987 · Geneva · London · Dubai</div>
+    <div class="page-loader__bar"></div>
+  </div>
+
+  <!-- Noise overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Page Transition -->
+  <div class="page-transition" aria-hidden="true"></div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress-bar" aria-hidden="true">
+    <div class="scroll-progress"></div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════
+       NAVBAR
+       ════════════════════════════════════════════════════ -->
+  <header>
+    <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
+      <div class="navbar__inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Maison Lumière Home">
+          <span class="navbar__logo-text">Maison Lumière</span>
+          <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <ul class="navbar__nav" role="list">
+          <li class="navbar__nav-item">
+            <a href="index.html" class="navbar__nav-link active">Home</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="home2.html" class="navbar__nav-link">Home 2</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="about.html" class="navbar__nav-link">About</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="services.html" class="navbar__nav-link">Services</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="blog.html" class="navbar__nav-link">Journal</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="contact.html" class="navbar__nav-link">Contact</a>
+          </li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="navbar__actions">
+          <!-- Search -->
+          <button class="navbar__icon-btn" aria-label="Search" id="searchBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </button>
+
+          <!-- Theme toggle -->
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme" id="themeToggle">
+            <span class="theme-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+
+          <!-- RTL toggle -->
+          <button class="toggle-btn" data-rtl-toggle aria-label="Toggle RTL/LTR" id="rtlToggle">RTL</button>
+
+          <!-- CTA -->
+          <a href="contact.html" class="btn btn--primary btn--sm">
+            <span>Book Visit</span>
+          </a>
+
+          <!-- Hamburger -->
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="navbar__mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <div class="navbar__mobile-item">
+        <a href="index.html" class="navbar__mobile-link">Home</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="about.html" class="navbar__mobile-link">About</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="services.html" class="navbar__mobile-link">Services</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="blog.html" class="navbar__mobile-link">Journal</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      </div>
+      <div class="navbar__mobile-controls">
+        <button class="toggle-btn" data-theme-toggle>
+          <span class="theme-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+          Theme
+        </button>
+        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ════════════════════════════════════════════════════
+         SECTION 1: HERO SLIDER
+         ════════════════════════════════════════════════════ -->
+    <section class="hero-slider" aria-label="Featured collections" id="home">
+      <div class="hero-slider__track" role="list">
+
+        <!-- Slide 1 — Watches -->
+        <article class="hero-slide active" role="listitem" aria-label="Tourbillon Collection">
+          <div class="hero-slide__bg">
+            <img src="assets/images/idx-hero-watch.png" alt="Luxury tourbillon watch on obsidian surface" loading="eager">
+          </div>
+          <div class="hero-slide__overlay" aria-hidden="true"></div>
+          <div class="hero-slide__content">
+            <p class="eyebrow eyebrow--light hero-slide__eyebrow">New Collection 2026</p>
+            <h1 class="hero-slide__title">Where <em>Time</em><br>Meets Timelessness</h1>
+            <p class="hero-slide__desc">Discover our curated selection of the world's most prestigious Swiss tourbillons and haute horlogerie masterpieces.</p>
+            <div class="hero-slide__actions">
+              <a href="index.html#watches" class="btn btn--primary btn--lg">
+                <span>Explore Watches</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="about.html" class="btn btn--ghost btn--lg">
+                <span>Our Story</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2 — Jewellery -->
+        <article class="hero-slide" role="listitem" aria-label="Diamond Collection">
+          <div class="hero-slide__bg">
+            <img src="assets/images/idx-hero-jewellery.png" alt="Exquisite diamond jewellery collection" loading="lazy">
+          </div>
+          <div class="hero-slide__overlay" aria-hidden="true"></div>
+          <div class="hero-slide__content">
+            <p class="eyebrow eyebrow--light hero-slide__eyebrow">High Jewellery</p>
+            <h2 class="hero-slide__title">The Art of<br><em>Diamond</em> Craftsmanship</h2>
+            <p class="hero-slide__desc">Each piece is a testament to generations of mastery — individually selected, impeccably cut, and set in platinum or 18k gold.</p>
+            <div class="hero-slide__actions">
+              <a href="index.html#diamonds" class="btn btn--primary btn--lg">
+                <span>View Jewellery</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="contact.html" class="btn btn--ghost btn--lg"><span>Private Viewing</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3 — Collection -->
+        <article class="hero-slide" role="listitem" aria-label="Watch Collection">
+          <div class="hero-slide__bg">
+            <img src="assets/images/idx-hero-showroom.png" alt="Premium watch collection display" loading="lazy">
+          </div>
+          <div class="hero-slide__overlay" aria-hidden="true"></div>
+          <div class="hero-slide__content">
+            <p class="eyebrow eyebrow--light hero-slide__eyebrow">Exclusive Showroom</p>
+            <h2 class="hero-slide__title">A Universe of<br><em>Rare</em> Timepieces</h2>
+            <p class="hero-slide__desc">From Patek Philippe to Audemars Piguet — our authorised showroom houses the most coveted horological treasures in one extraordinary space.</p>
+            <div class="hero-slide__actions">
+              <a href="contact.html" class="btn btn--primary btn--lg">
+                <span>Book Appointment</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /.hero-slider__track -->
+
+      <!-- Dots -->
+      <div class="hero-slider__controls" aria-label="Slider navigation">
+        <div class="hero-slider__dots" role="tablist" aria-label="Slide indicators">
+          <button class="hero-slider__dot active" role="tab" aria-label="Slide 1" aria-selected="true"></button>
+          <button class="hero-slider__dot" role="tab" aria-label="Slide 2" aria-selected="false"></button>
+          <button class="hero-slider__dot" role="tab" aria-label="Slide 3" aria-selected="false"></button>
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <div class="hero-slider__arrows" aria-label="Slider controls">
+        <button class="hero-slider__arrow hero-slider__arrow--prev" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="hero-slider__arrow hero-slider__arrow--next" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 15 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Scroll cue -->
+      <div class="hero-slider__scroll-cue" aria-hidden="true">Scroll</div>
+
+    </section><!-- /.hero-slider -->
+
+    <!-- ════════════════════════════════════════════════════
+         SECTION 2: BRAND MARQUEE + COLLECTIONS
+         ════════════════════════════════════════════════════ -->
+
+    <!-- Brand Marquee -->
+    <section class="marquee-section" aria-label="Featured brands">
+      <div class="marquee-track" aria-hidden="true">
+        <div class="marquee-item marquee-item--accent">Patek Philippe</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Audemars Piguet</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item marquee-item--accent">Cartier</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Bulgari</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item marquee-item--accent">Rolex</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Van Cleef &amp; Arpels</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item marquee-item--accent">Chopard</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Piaget</div>
+        <div class="marquee-dot"></div>
+        <!-- Repeat for seamless loop -->
+        <div class="marquee-item marquee-item--accent">Patek Philippe</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Audemars Piguet</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item marquee-item--accent">Cartier</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Bulgari</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item marquee-item--accent">Rolex</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Van Cleef &amp; Arpels</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item marquee-item--accent">Chopard</div>
+        <div class="marquee-dot"></div>
+        <div class="marquee-item">Piaget</div>
+      </div>
+    </section>
+
+    <!-- Collections Editorial Grid -->
+    <section class="section" id="watches" aria-labelledby="collections-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Our Collections</span>
+          <h2 class="section-title" id="collections-title">Curated for the<br><em style="font-style:italic">Discerning</em></h2>
+          <p class="section-subtitle">From haute horlogerie to high jewellery — each piece is a masterwork of artisanal excellence.</p>
+        </div>
+
+        <div class="collections-grid">
+          <!-- Large card — Watches -->
+          <article class="editorial-card tilt-card reveal-left">
+            <div class="editorial-card__bg zoom-container">
+              <img src="assets/images/idx-editorial-tourbillon.png" alt="Luxury watch collection" loading="lazy">
+            </div>
+            <div class="editorial-card__overlay" aria-hidden="true"></div>
+            <div class="editorial-card__body">
+              <p class="editorial-card__category">Haute Horlogerie</p>
+              <h3 class="editorial-card__title">The Tourbillon<br>Collection</h3>
+              <a href="#watches" class="editorial-card__cta" aria-label="Explore the Tourbillon Collection">
+                Explore
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Top-right — Diamonds -->
+          <article class="editorial-card tilt-card reveal-right" id="diamonds">
+            <div class="editorial-card__bg zoom-container">
+              <img src="assets/images/idx-editorial-diamond.png" alt="Diamond jewellery collection" loading="lazy">
+            </div>
+            <div class="editorial-card__overlay" aria-hidden="true"></div>
+            <div class="editorial-card__body">
+              <p class="editorial-card__category">High Jewellery</p>
+              <h3 class="editorial-card__title">Diamond Atelier</h3>
+              <a href="#diamonds" class="editorial-card__cta" aria-label="Explore Diamond Atelier">
+                Explore
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Bottom-right — Gold -->
+          <article class="editorial-card tilt-card reveal-right delay-2" id="gold">
+            <div class="editorial-card__bg zoom-container">
+              <img src="assets/images/idx-editorial-gold.png" alt="Gold and platinum jewellery" loading="lazy">
+            </div>
+            <div class="editorial-card__overlay" aria-hidden="true"></div>
+            <div class="editorial-card__body">
+              <p class="editorial-card__category">Gold &amp; Platinum</p>
+              <h3 class="editorial-card__title">Precious Metals</h3>
+              <a href="#gold" class="editorial-card__cta" aria-label="Explore Precious Metals collection">
+                Explore
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         SECTION 3: NEW ARRIVALS
+         ════════════════════════════════════════════════════ -->
+    <section class="section" style="background:var(--bg-secondary)" aria-labelledby="arrivals-title">
+      <div class="container container--wide">
+        <div class="section-header" style="display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap">
+          <div class="reveal">
+            <span class="eyebrow">New Arrivals</span>
+            <h2 class="section-title" id="arrivals-title" style="margin-top:1rem">Just Arrived<br><em style="font-style:italic">This Season</em></h2>
+          </div>
+          <a href="services.html" class="btn btn--outline reveal delay-2">
+            <span>View All</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div class="arrivals-grid">
+
+          <!-- Card 1 -->
+          <article class="product-card tilt-card reveal delay-1" data-lightbox="assets/images/idx-product-tourbillon.png" data-lightbox-alt="Lumière Tourbillon">
+            <div class="product-card__media zoom-container">
+              <img src="assets/images/idx-product-tourbillon.png" alt="Lumière Tourbillon Perpetual" loading="lazy">
+              <span class="product-card__badge product-card__badge--new">New</span>
+              <div class="product-card__actions" aria-label="Product actions">
+                <button class="product-card__action-btn" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-tourbillon.png">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__brand">Maison Lumière</span>
+              <h3 class="product-card__name">Tourbillon Perpetual II</h3>
+              <p class="product-card__desc">18k rose gold case, sapphire crystal caseback, 72-hour power reserve</p>
+              <div class="product-card__footer">
+                <div>
+                  <span class="product-card__price">£ 98,500</span>
+                </div>
+                <a href="contact.html" class="btn btn--teal btn--sm"><span>Enquire</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="product-card tilt-card reveal delay-2" data-lightbox="assets/images/idx-product-diamond-solitaire.png" data-lightbox-alt="Diamond Solitaire">
+            <div class="product-card__media zoom-container">
+              <img src="assets/images/idx-product-diamond-solitaire.png" alt="Diamond Solitaire Ring" loading="lazy">
+              <span class="product-card__badge">Exclusive</span>
+              <div class="product-card__actions">
+                <button class="product-card__action-btn" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-diamond-solitaire.png">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__brand">High Jewellery</span>
+              <h3 class="product-card__name">Diamond Solitaire 3.2ct</h3>
+              <p class="product-card__desc">D-colour, Flawless, GIA certified, platinum band, pavé shoulders</p>
+              <div class="product-card__footer">
+                <div>
+                  <span class="product-card__price">£ 62,000</span>
+                </div>
+                <a href="contact.html" class="btn btn--teal btn--sm"><span>Enquire</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="product-card tilt-card reveal delay-3" data-lightbox="assets/images/idx-product-gold-cuff.png" data-lightbox-alt="Gold Bangle">
+            <div class="product-card__media zoom-container">
+              <img src="assets/images/idx-product-gold-cuff.png" alt="18k Gold bangle collection" loading="lazy">
+              <div class="product-card__actions">
+                <button class="product-card__action-btn" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-gold-cuff.png">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__brand">Gold Collection</span>
+              <h3 class="product-card__name">18k Gold Cuff Bangle</h3>
+              <p class="product-card__desc">Brushed and polished 18-carat yellow gold, artisan hammered finish</p>
+              <div class="product-card__footer">
+                <div>
+                  <span class="product-card__price">£ 14,800</span>
+                </div>
+                <a href="contact.html" class="btn btn--teal btn--sm"><span>Enquire</span></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="product-card tilt-card reveal delay-4" data-lightbox="assets/images/idx-product-gmt-chrono.png">
+            <div class="product-card__media zoom-container">
+              <img src="assets/images/idx-product-gmt-chrono.png" alt="Sports chronograph watch" loading="lazy">
+              <span class="product-card__badge product-card__badge--new">Limited</span>
+              <div class="product-card__actions">
+                <button class="product-card__action-btn" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-gmt-chrono.png">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <span class="product-card__brand">Sports Chronograph</span>
+              <h3 class="product-card__name">Chronoexpert GMT Pro</h3>
+              <p class="product-card__desc">Titanium case, ceramic bezel, GMT complication, 500m water resistance</p>
+              <div class="product-card__footer">
+                <div>
+                  <span class="product-card__price">£ 41,200</span>
+                </div>
+                <a href="contact.html" class="btn btn--teal btn--sm"><span>Enquire</span></a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.arrivals-grid -->
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         SECTION 4: GIFTING CONCIERGE
+         ════════════════════════════════════════════════════ -->
+    <section class="section" id="gifting" aria-labelledby="gifting-title">
+      <div class="container container--wide">
+        <div class="gifting-split reveal-scale">
+          <!-- Image -->
+          <div class="gifting-split__media">
+            <img src="assets/images/idx-gifting-concierge.png" alt="Luxury gift packaging and presentation" loading="lazy">
+          </div>
+          <!-- Content -->
+          <div class="gifting-split__content">
+            <span class="eyebrow eyebrow--light">Bespoke Gifting</span>
+            <h2 class="section-title" id="gifting-title" style="color:var(--ivory)">The Art of<br><em style="font-style:italic;color:var(--champagne)">Perfect</em> Gifting</h2>
+            <p style="color:rgba(247,243,234,0.65);line-height:1.75">Our dedicated gifting concierge team curates bespoke experiences for every occasion — from intimate proposals to landmark anniversaries. Each gift is wrapped in our signature obsidian packaging with a personalised message engraved in gold.</p>
+            <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-top:0.5rem">
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.7);font-size:0.9rem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:18px;height:18px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+                Private in-boutique presentation suite
+              </li>
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.7);font-size:0.9rem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:18px;height:18px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+                Personal engraving &amp; monogramming service
+              </li>
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.7);font-size:0.9rem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:18px;height:18px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+                Worldwide insured delivery within 48 hours
+              </li>
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.7);font-size:0.9rem">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:18px;height:18px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>
+                Corporate gifting programmes available
+              </li>
+            </ul>
+            <a href="contact.html" class="btn btn--outline" style="margin-top:0.5rem;align-self:flex-start">
+              <span>Begin Your Journey</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         SECTION 5: TESTIMONIALS
+         ════════════════════════════════════════════════════ -->
+    <section class="section" style="background:var(--bg-secondary)" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Client Stories</span>
+          <h2 class="section-title" id="testimonials-title">What Our Clients<br><em style="font-style:italic">Say</em></h2>
+          <div class="divider"></div>
+        </div>
+
+        <!-- Testimonial Slider -->
+        <div class="testimonial-slider" id="testimonialSlider">
+          <div class="testimonial-slider__track">
+            <div class="testimonial-slider__slide">
+              <div class="testimonial-card reveal delay-1">
+                <div class="testimonial-card__quote-icon" aria-hidden="true">"</div>
+                <div class="testimonial-card__stars" aria-label="5 stars">
+                  ★★★★★
+                </div>
+                <p class="testimonial-card__text">"The experience at Maison Lumière transcends mere shopping. My wife's engagement ring — a 2.8ct cushion-cut diamond in platinum — was presented in a private suite with Champagne. Utterly extraordinary from start to finish."</p>
+                <div class="testimonial-card__author">
+                  <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--champagne-dark));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.1rem;color:white;flex-shrink:0">JH</div>
+                  <div>
+                    <p class="testimonial-card__name">James Harrington</p>
+                    <p class="testimonial-card__role">Private Equity, London</p>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-card reveal delay-2">
+                <div class="testimonial-card__quote-icon" aria-hidden="true">"</div>
+                <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+                <p class="testimonial-card__text">"I purchased a Patek Philippe Nautilus through Maison Lumière after years on the waitlist. Their connections within the Swiss watch world are unparalleled. The white-glove delivery experience was unlike anything I've encountered."</p>
+                <div class="testimonial-card__author">
+                  <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--espresso),var(--champagne-dark));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.1rem;color:var(--ivory);flex-shrink:0">SR</div>
+                  <div>
+                    <p class="testimonial-card__name">Sanjay Rajan</p>
+                    <p class="testimonial-card__role">Tech Entrepreneur, Dubai</p>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-card reveal delay-3">
+                <div class="testimonial-card__quote-icon" aria-hidden="true">"</div>
+                <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+                <p class="testimonial-card__text">"The craftsmanship of the bespoke gold necklace they created for my mother's 70th birthday reduced her to tears of joy. The team's attention to detail and dedication to perfection is evident in every piece. A truly world-class experience."</p>
+                <div class="testimonial-card__author">
+                  <div style="width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--teal-light),var(--champagne));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1.1rem;color:white;flex-shrink:0">IA</div>
+                  <div>
+                    <p class="testimonial-card__name">Isabelle Anand</p>
+                    <p class="testimonial-card__role">Art Collector, Geneva</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:3rem;flex-wrap:wrap;gap:1rem">
+          <div style="display:flex;gap:0.75rem" data-tslider-dots></div>
+          <div style="display:flex;gap:0.75rem">
+            <button data-tslider-prev class="btn btn--outline btn--icon" aria-label="Previous testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button data-tslider-next class="btn btn--outline btn--icon" aria-label="Next testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════
+         SECTION 6: STORE VISIT CTA
+         ════════════════════════════════════════════════════ -->
+    <section class="cta-section" aria-labelledby="cta-title">
+      <div class="cta-section__deco-1" aria-hidden="true"></div>
+      <div class="cta-section__deco-2" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="responsive-split reveal">
+          <!-- Left -->
+          <div style="display:flex;flex-direction:column;gap:1.5rem">
+            <span class="eyebrow eyebrow--light">Visit Our Showroom</span>
+            <h2 class="section-title" id="cta-title" style="color:var(--ivory)">Experience<br><em style="font-style:italic;color:var(--champagne)">Luxury</em><br>In Person</h2>
+            <p style="color:rgba(247,243,234,0.65);line-height:1.75;max-width:440px">Step into our sanctuary of horological and jewellery excellence. Our expert consultants will guide you through our full collection in a private, unhurried environment.</p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:0.5rem">
+              <a href="contact.html" class="btn btn--primary btn--lg">
+                <span>Book a Private Viewing</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="contact.html" class="btn btn--ghost btn--lg"><span>Get Directions</span></a>
+            </div>
+          </div>
+
+          <!-- Right - Info Cards -->
+          <div class="responsive-grid-2">
+            <div style="background:rgba(247,243,234,0.05);border:1px solid rgba(232,211,162,0.15);border-radius:1rem;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem">
+              <div style="width:44px;height:44px;background:rgba(232,211,162,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:20px;height:20px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--champagne)">Address</p>
+              <p style="font-size:0.875rem;color:rgba(247,243,234,0.6);line-height:1.6">47 Bond Street<br>Mayfair, London<br>W1S 1BT</p>
+            </div>
+            <div style="background:rgba(247,243,234,0.05);border:1px solid rgba(232,211,162,0.15);border-radius:1rem;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem">
+              <div style="width:44px;height:44px;background:rgba(232,211,162,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:20px;height:20px"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--champagne)">Hours</p>
+              <p style="font-size:0.875rem;color:rgba(247,243,234,0.6);line-height:1.6">Mon–Fri: 10am–7pm<br>Saturday: 10am–6pm<br>By appointment: 7 days</p>
+            </div>
+            <div style="background:rgba(247,243,234,0.05);border:1px solid rgba(232,211,162,0.15);border-radius:1rem;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem">
+              <div style="width:44px;height:44px;background:rgba(232,211,162,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:20px;height:20px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--champagne)">Contact</p>
+              <p style="font-size:0.875rem;color:rgba(247,243,234,0.6);line-height:1.6">+44 20 7495 0000<br>hello@maisonlumiere.com</p>
+            </div>
+            <div style="background:rgba(247,243,234,0.05);border:1px solid rgba(232,211,162,0.15);border-radius:1rem;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem">
+              <div style="width:44px;height:44px;background:rgba(232,211,162,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:20px;height:20px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--champagne)">Assurance</p>
+              <p style="font-size:0.875rem;color:rgba(247,243,234,0.6);line-height:1.6">All pieces certified<br>with full provenance<br>&amp; global warranty</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ════════════════════════════════════════════════════
+       FOOTER
+       ════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-logo">Maison Lumière</a>
+          <p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery. A curated sanctuary where every piece tells an extraordinary story.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter / X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Collections -->
+        <div>
+          <h3 class="footer__col-title">Collections</h3>
+          <ul class="footer__nav" role="list">
+            <li><a href="index.html#watches" class="footer__nav-link">Luxury Watches</a></li>
+            <li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li>
+            <li><a href="index.html#gold" class="footer__nav-link">Gold &amp; Silver</a></li>
+            <li><a href="index.html#gifting" class="footer__nav-link">Gifting</a></li>
+            <li><a href="services.html" class="footer__nav-link">Repair Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Maison -->
+        <div>
+          <h3 class="footer__col-title">Maison</h3>
+          <ul class="footer__nav" role="list">
+            <li><a href="about.html" class="footer__nav-link">Our Story</a></li>
+            <li><a href="about.html#craftsmanship" class="footer__nav-link">Craftsmanship</a></li>
+            <li><a href="blog.html" class="footer__nav-link">The Journal</a></li>
+            <li><a href="about.html#team" class="footer__nav-link">Meet the Team</a></li>
+            <li><a href="contact.html" class="footer__nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h3 class="footer__col-title">The Private List</h3>
+          <p style="font-size:0.875rem;color:rgba(247,243,234,0.4);line-height:1.7;margin-bottom:1.25rem">Receive exclusive previews, private sale invitations, and horological insights before anyone else.</p>
+          <form class="newsletter-form" aria-label="Newsletter subscription">
+            <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address" required>
+            <button type="submit" class="btn btn--primary btn--sm" aria-label="Subscribe">
+              <span>Join</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Maison Lumière. All rights reserved. Established 1987, London.</p>
+        <nav class="footer__legal" aria-label="Legal links">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html" class="footer__legal-link">Terms &amp; Conditions</a>
+          <a href="sitemap.html" class="footer__legal-link">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Toast Container -->
+  <div class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/slider.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

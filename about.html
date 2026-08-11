@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Maison Lumière — our story, heritage, craftsmanship philosophy, team, and awards since 1987.">
+  <title>About Us | Maison Lumière</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    .team-card { text-align: center; }
+    .team-card__avatar {
+      width: 100%; aspect-ratio: 3/4; border-radius: var(--radius-xl); overflow: hidden; margin-bottom: var(--space-4);
+      background: var(--bg-tertiary); position: relative;
+    }
+    .team-card__avatar img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--duration-epic) var(--ease-luxury); }
+    .team-card:hover .team-card__avatar img { transform: scale(1.05); }
+    .team-card__name { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; }
+    .team-card__role { font-size: var(--text-sm); color: var(--champagne-dark); letter-spacing: 0.1em; margin-top: 0.25rem; }
+    .team-card__bio { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.65; margin-top: 0.75rem; }
+    .awards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .award-item { border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-3); transition: border-color var(--duration-base), box-shadow var(--duration-base); }
+    .award-item:hover { border-color: var(--border-accent); box-shadow: var(--shadow-sm); }
+    .award-year { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--champagne-dark); }
+    .award-name { font-family: var(--font-display); font-size: var(--text-xl); }
+    .award-org { font-size: var(--text-sm); color: var(--text-muted); }
+    .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+    .philosophy-item { padding: var(--space-8); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-4); }
+    .philosophy-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--champagne-dark), var(--champagne)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
+    .philosophy-icon svg { width: 26px; height: 26px; color: var(--obsidian); }
+    @media (max-width: 1100px) { .team-grid { grid-template-columns: repeat(2, 1fr); } .awards-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; } .philosophy-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .awards-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="page-loader__logo">Maison Lumière</div><div class="page-loader__sub">Since 1987</div><div class="page-loader__bar"></div></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header>
+    <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+        <ul class="navbar__nav" role="list">
+          <li class="navbar__nav-item"><a href="index.html" class="navbar__nav-link">Home</a></li>
+          <li class="navbar__nav-item"><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
+          <li class="navbar__nav-item"><a href="about.html" class="navbar__nav-link active">About</a></li>
+          <li class="navbar__nav-item"><a href="services.html" class="navbar__nav-link">Services</a></li>
+          <li class="navbar__nav-item"><a href="blog.html" class="navbar__nav-link">Journal</a></li>
+          <li class="navbar__nav-item"><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+          <button class="toggle-btn" data-rtl-toggle>RTL</button>
+          <a href="contact.html" class="btn btn--primary btn--sm"><span>Book Visit</span></a>
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__mobile-menu" role="dialog">
+      <a href="index.html" class="navbar__mobile-link">Home</a>
+      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      <a href="about.html" class="navbar__mobile-link">About</a>
+      <a href="services.html" class="navbar__mobile-link">Services</a>
+      <a href="blog.html" class="navbar__mobile-link">Journal</a>
+      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      <div class="navbar__mobile-controls">
+        <button class="toggle-btn" data-theme-toggle><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>Theme</button>
+        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="page-hero" aria-label="About page hero">
+      <div class="page-hero__bg"><img src="assets/images/about-hero-watchmaker.png" alt="Master watchmaker" loading="eager"></div>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__content">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="page-hero__breadcrumb-sep" aria-hidden="true">/</span>
+          <span class="page-hero__breadcrumb-current">About</span>
+        </nav>
+        <h1 class="page-hero__title reveal">Our Story</h1>
+        <p class="page-hero__subtitle reveal delay-1">Four decades of passion for the extraordinary — where fine watchmaking meets the art of jewellery.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: OUR STORY TIMELINE -->
+    <section class="section" aria-labelledby="story-title">
+      <div class="container">
+        <div class="responsive-split--top">
+          <div class="reveal-left">
+            <span class="eyebrow">Est. 1987</span>
+            <h2 class="section-title" id="story-title" style="margin-top:1rem;margin-bottom:2rem">A Legacy<br>Built on<br><em style="font-style:italic">Passion</em></h2>
+            <p style="color:var(--text-muted);line-height:1.75;margin-bottom:1.25rem">Maison Lumière was founded in 1987 by Sir Edmund Ashworth, a former horologist with Audemars Piguet, and his wife Lady Caroline Ashworth, a jewellery designer trained at the Gemological Institute of America.</p>
+            <p style="color:var(--text-muted);line-height:1.75;margin-bottom:2rem">Their vision was singular: to create a space where the world's finest timepieces and jewellery could be experienced, not merely purchased. A sanctuary of excellence in the heart of Mayfair.</p>
+            <a href="contact.html" class="btn btn--teal"><span>Visit Our Showroom</span></a>
+          </div>
+          <div class="reveal-right">
+            <div class="timeline">
+              <div class="timeline-item">
+                <p class="timeline-year">1987</p>
+                <h3 class="timeline-title">The Foundation</h3>
+                <p class="timeline-desc">Maison Lumière opens its doors at 47 Bond Street, London, with an inaugural collection of 12 Swiss timepieces and bespoke jewellery.</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-year">1995</p>
+                <h3 class="timeline-title">First International Partnership</h3>
+                <p class="timeline-desc">Patek Philippe selects Maison Lumière as an authorised partner — the first independent London boutique to receive this honour in a decade.</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-year">2003</p>
+                <h3 class="timeline-title">The Dubai Expansion</h3>
+                <p class="timeline-desc">A second showroom opens in Dubai's DIFC, bringing our curation to the Gulf's most discerning collectors.</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-year">2015</p>
+                <h3 class="timeline-title">High Jewellery Atelier Launch</h3>
+                <p class="timeline-desc">We launch our bespoke jewellery studio — creating one-of-a-kind commissions for clients worldwide.</p>
+              </div>
+              <div class="timeline-item">
+                <p class="timeline-year">2024</p>
+                <h3 class="timeline-title">Celebrating 37 Years</h3>
+                <p class="timeline-desc">Named 'Jewellery Retailer of the Year' by the UK Luxury Guild for the fifth consecutive year, serving over 12,000 global clients.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: CRAFTSMANSHIP & PHILOSOPHY -->
+    <section class="section" style="background:var(--bg-secondary)" id="craftsmanship" aria-labelledby="craft-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Our Philosophy</span>
+          <h2 class="section-title" id="craft-title">Crafted With<br><em style="font-style:italic">Intention</em></h2>
+          <p class="section-subtitle">Every aspect of the Maison Lumière experience is guided by our three founding pillars of excellence.</p>
+        </div>
+        <div class="philosophy-grid">
+          <div class="philosophy-item reveal delay-1">
+            <div class="philosophy-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:var(--text-2xl)">Authenticity</h3>
+            <p style="color:var(--text-muted);line-height:1.75;font-size:var(--text-sm)">Every piece in our collection is accompanied by full provenance documentation, serial verification, and manufacturer certification. We categorically refuse to stock any piece that cannot be authenticated to the highest standard.</p>
+          </div>
+          <div class="philosophy-item reveal delay-2">
+            <div class="philosophy-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:var(--text-2xl)">Timelessness</h3>
+            <p style="color:var(--text-muted);line-height:1.75;font-size:var(--text-sm)">We curate not for trends but for eternity. Our selection criteria demands that every piece holds enduring relevance — both as an object of beauty and as an investment that appreciates with time.</p>
+          </div>
+          <div class="philosophy-item reveal delay-3">
+            <div class="philosophy-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 style="font-family:var(--font-display);font-size:var(--text-2xl)">Service</h3>
+            <p style="color:var(--text-muted);line-height:1.75;font-size:var(--text-sm)">From first enquiry to lifetime after-care, our dedicated client advisors provide a seamless, unhurried, and deeply personal experience — because luxury is not a product, it is a relationship.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: MEET THE TEAM -->
+    <section class="section" id="team" aria-labelledby="team-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Our People</span>
+          <h2 class="section-title" id="team-title">Meet the<br><em style="font-style:italic">Experts</em></h2>
+        </div>
+        <div class="team-grid">
+          <div class="team-card reveal delay-1">
+            <div class="team-card__avatar">
+              <img src="assets/images/about-team-edmund.png" alt="Sir Edmund Ashworth" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <h3 class="team-card__name">Sir Edmund Ashworth</h3>
+            <p class="team-card__role">Founder &amp; Master Horologist</p>
+            <p class="team-card__bio">Former head technician at Audemars Piguet Geneva. Fellow of the British Horological Institute.</p>
+          </div>
+          <div class="team-card reveal delay-2">
+            <div class="team-card__avatar">
+              <img src="assets/images/about-team-caroline.png" alt="Lady Caroline Ashworth" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <h3 class="team-card__name">Lady Caroline Ashworth</h3>
+            <p class="team-card__role">Co-Founder &amp; Creative Director</p>
+            <p class="team-card__bio">GIA Graduate Gemologist and award-winning jewellery designer with over 35 years of industry expertise.</p>
+          </div>
+          <div class="team-card reveal delay-3">
+            <div class="team-card__avatar">
+              <img src="assets/images/about-team-james.png" alt="James Whitfield" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <h3 class="team-card__name">James Whitfield</h3>
+            <p class="team-card__role">Head of Watch Acquisitions</p>
+            <p class="team-card__bio">15 years at Christie's London watch department. Specialist in rare and limited-edition horology.</p>
+          </div>
+          <div class="team-card reveal delay-4">
+            <div class="team-card__avatar">
+              <img src="assets/images/about-team-amira.png" alt="Amira Al-Rashid" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <h3 class="team-card__name">Amira Al-Rashid</h3>
+            <p class="team-card__role">Director, Middle East &amp; Asia</p>
+            <p class="team-card__bio">Leads our Dubai flagship. Bilingual Arabic/English client services specialist with a passion for haute joaillerie.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: AWARDS & PRESS -->
+    <section class="section section--espresso" id="awards" aria-labelledby="awards-title" style="background:var(--espresso)">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--light">Recognition</span>
+          <h2 class="section-title" id="awards-title" style="color:var(--ivory)">Awards &<br><em style="font-style:italic;color:var(--champagne)">Press</em></h2>
+        </div>
+        <div class="awards-grid">
+          <div class="award-item reveal delay-1" style="background:rgba(247,243,234,0.04);border-color:rgba(232,211,162,0.12)">
+            <p class="award-year">2024</p>
+            <h3 class="award-name" style="color:var(--ivory)">Jewellery Retailer of the Year</h3>
+            <p class="award-org" style="color:rgba(247,243,234,0.4)">UK Luxury Guild — Fifth consecutive year</p>
+          </div>
+          <div class="award-item reveal delay-2" style="background:rgba(247,243,234,0.04);border-color:rgba(232,211,162,0.12)">
+            <p class="award-year">2023</p>
+            <h3 class="award-name" style="color:var(--ivory)">Best Independent Watch Retailer</h3>
+            <p class="award-org" style="color:rgba(247,243,234,0.4)">WatchPro Magazine — UK &amp; International</p>
+          </div>
+          <div class="award-item reveal delay-3" style="background:rgba(247,243,234,0.04);border-color:rgba(232,211,162,0.12)">
+            <p class="award-year">2022</p>
+            <h3 class="award-name" style="color:var(--ivory)">Excellence in Client Service</h3>
+            <p class="award-org" style="color:rgba(247,243,234,0.4)">Walpole British Luxury Awards</p>
+          </div>
+          <div class="award-item reveal delay-4" style="background:rgba(247,243,234,0.04);border-color:rgba(232,211,162,0.12)">
+            <p class="award-year">2020</p>
+            <h3 class="award-name" style="color:var(--ivory)">Top 10 Luxury Experiences, London</h3>
+            <p class="award-org" style="color:rgba(247,243,234,0.4)">Condé Nast Traveller UK</p>
+          </div>
+          <div class="award-item reveal delay-5" style="background:rgba(247,243,234,0.04);border-color:rgba(232,211,162,0.12)">
+            <p class="award-year">2018</p>
+            <h3 class="award-name" style="color:var(--ivory)">Heritage Brand of the Year</h3>
+            <p class="award-org" style="color:rgba(247,243,234,0.4)">British Fashion Council</p>
+          </div>
+          <div class="award-item reveal delay-6" style="background:rgba(247,243,234,0.04);border-color:rgba(232,211,162,0.12)">
+            <p class="award-year">2015</p>
+            <h3 class="award-name" style="color:var(--ivory)">Master of Horological Arts</h3>
+            <p class="award-org" style="color:rgba(247,243,234,0.4)">Royal Horological Society — Sir Edmund Ashworth</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FOOTER CTA -->
+    <section class="section section--teal" aria-labelledby="about-cta-title">
+      <div class="container">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem" class="reveal">
+          <span class="eyebrow eyebrow--light">Begin Your Journey</span>
+          <h2 class="section-title" id="about-cta-title" style="color:var(--ivory)">Experience the Maison<br><em style="font-style:italic;color:var(--champagne)">In Person</em></h2>
+          <p style="color:rgba(247,243,234,0.6);max-width:480px;line-height:1.75">We invite you to visit our Bond Street showroom or our Dubai flagship for a private, unhurried consultation with one of our specialist advisors.</p>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:0.5rem">
+            <a href="contact.html" class="btn btn--primary btn--lg"><span>Book a Private Viewing</span></a>
+            <a href="services.html" class="btn btn--ghost btn--lg"><span>Our Services</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-logo">Maison Lumière</a>
+          <p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+        </div>
+        <div><h3 class="footer__col-title">Collections</h3><ul class="footer__nav"><li><a href="index.html" class="footer__nav-link">Luxury Watches</a></li><li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li><li><a href="services.html" class="footer__nav-link">Services</a></li></ul></div>
+        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">Our Story</a></li><li><a href="blog.html" class="footer__nav-link">The Journal</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
+        <div><h3 class="footer__col-title">Newsletter</h3><form class="newsletter-form" style="flex-direction:column;gap:0.75rem"><input type="email" class="form-control" placeholder="Your email" aria-label="Email" required><button type="submit" class="btn btn--primary btn--sm"><span>Join</span></button></form></div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p>
+        <nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a><a href="sitemap.html" class="footer__legal-link">Sitemap</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast-container" aria-live="polite"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison Lumière Services — expert watch repair, jewellery valuation, bespoke commission, engraving, and gifting concierge services.">
+  <title>Our Services | Maison Lumière</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .services-grid { grid-template-columns: 1fr; } }
+    .faq-section { max-width: 780px; margin-inline: auto; }
+    .booking-form { max-width: 640px; margin-inline: auto; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: clamp(2rem, 5vw, 4rem); }
+  </style>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="page-loader__logo">Maison Lumière</div><div class="page-loader__bar"></div></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header>
+    <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+        <ul class="navbar__nav" role="list">
+          <li><a href="index.html" class="navbar__nav-link">Home</a></li>
+          <li><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
+          <li><a href="about.html" class="navbar__nav-link">About</a></li>
+          <li><a href="services.html" class="navbar__nav-link active">Services</a></li>
+          <li><a href="blog.html" class="navbar__nav-link">Journal</a></li>
+          <li><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+          <button class="toggle-btn" data-rtl-toggle>RTL</button>
+          <a href="contact.html" class="btn btn--primary btn--sm"><span>Book Visit</span></a>
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__mobile-menu" role="dialog">
+      <a href="index.html" class="navbar__mobile-link">Home</a>
+      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      <a href="about.html" class="navbar__mobile-link">About</a>
+      <a href="services.html" class="navbar__mobile-link">Services</a>
+      <a href="blog.html" class="navbar__mobile-link">Journal</a>
+      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      <div class="navbar__mobile-controls">
+        <button class="toggle-btn" data-theme-toggle><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>Theme</button>
+        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="page-hero" aria-label="Services hero">
+      <div class="page-hero__bg"><img src="assets/images/services-hero-workshop.png" alt="Watchmaking expertise" loading="eager"></div>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__content">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="page-hero__breadcrumb-sep">/</span>
+          <span class="page-hero__breadcrumb-current">Services</span>
+        </nav>
+        <h1 class="page-hero__title reveal">Our Services</h1>
+        <p class="page-hero__subtitle reveal delay-1">From precision repair to bespoke commissions — our atelier services are unmatched in expertise and care.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SERVICES GRID -->
+    <section class="section" aria-labelledby="services-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">What We Offer</span>
+          <h2 class="section-title" id="services-title">Services of the<br><em style="font-style:italic">Highest Order</em></h2>
+        </div>
+        <div class="services-grid">
+          <div class="service-card reveal delay-1">
+            <div class="service-card__image-wrap zoom-container lightbox-trigger" data-lightbox="assets/images/services-card-restoration.png">
+              <img src="assets/images/services-card-restoration.png" alt="Watch Restoration &amp; Repair" loading="lazy" class="service-card__img">
+              <div class="service-card__icon-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Watch Restoration &amp; Repair</h3>
+              <p class="service-card__desc">Our master horologists perform complete movement service, case restoration, and crystal replacement to manufacturer specifications. All repairs carry a 2-year service warranty.</p>
+              <a href="#booking" class="btn btn--outline btn--sm"><span>Book a Service</span></a>
+            </div>
+          </div>
+          <div class="service-card reveal delay-2">
+            <div class="service-card__image-wrap zoom-container lightbox-trigger" data-lightbox="assets/images/services-card-valuation.png">
+              <img src="assets/images/services-card-valuation.png" alt="Jewellery Valuation" loading="lazy" class="service-card__img">
+              <div class="service-card__icon-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Jewellery Valuation</h3>
+              <p class="service-card__desc">Independent insurance and estate valuations conducted by our GIA-certified gemologists. Full written appraisal reports accepted by all major insurers.</p>
+              <a href="#booking" class="btn btn--outline btn--sm"><span>Request Valuation</span></a>
+            </div>
+          </div>
+          <div class="service-card reveal delay-3">
+            <div class="service-card__image-wrap zoom-container lightbox-trigger" data-lightbox="assets/images/services-card-bespoke.png">
+              <img src="assets/images/services-card-bespoke.png" alt="Bespoke Commissions" loading="lazy" class="service-card__img">
+              <div class="service-card__icon-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Bespoke Commissions</h3>
+              <p class="service-card__desc">Work with our in-house jewellery designer to create a completely bespoke piece. From concept sketches to finished creation — an experience as exceptional as the result.</p>
+              <a href="#booking" class="btn btn--outline btn--sm"><span>Start a Commission</span></a>
+            </div>
+          </div>
+          <div class="service-card reveal delay-4">
+            <div class="service-card__image-wrap zoom-container lightbox-trigger" data-lightbox="assets/images/services-card-engraving.png">
+              <img src="assets/images/services-card-engraving.png" alt="Engraving &amp; Personalisation" loading="lazy" class="service-card__img">
+              <div class="service-card__icon-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><line x1="16" y1="21" x2="16" y2="7"/><line x1="8" y1="21" x2="8" y2="7"/></svg>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Engraving &amp; Personalisation</h3>
+              <p class="service-card__desc">Laser precision engraving on watches, jewellery, and luxury accessories. Available in multiple scripts including Arabic, Chinese, and Devanagari for our international clients.</p>
+              <a href="#booking" class="btn btn--outline btn--sm"><span>Enquire</span></a>
+            </div>
+          </div>
+          <div class="service-card reveal delay-5">
+            <div class="service-card__image-wrap zoom-container lightbox-trigger" data-lightbox="assets/images/services-card-authentication.png">
+              <img src="assets/images/services-card-authentication.png" alt="Watch Authentication" loading="lazy" class="service-card__img">
+              <div class="service-card__icon-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Watch Authentication</h3>
+              <p class="service-card__desc">Comprehensive authentication service for pre-owned luxury timepieces. Movement inspection, serial number verification, and full condition report provided within 48 hours.</p>
+              <a href="#booking" class="btn btn--outline btn--sm"><span>Authenticate a Watch</span></a>
+            </div>
+          </div>
+          <div class="service-card reveal delay-6">
+            <div class="service-card__image-wrap zoom-container lightbox-trigger" data-lightbox="assets/images/services-card-gifting.png">
+              <img src="assets/images/services-card-gifting.png" alt="Gifting Concierge" loading="lazy" class="service-card__img">
+              <div class="service-card__icon-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </div>
+            </div>
+            <div class="service-card__body">
+              <h3 class="service-card__title">Gifting Concierge</h3>
+              <p class="service-card__desc">Let our specialists curate the perfect luxury gift for any occasion. Complete with bespoke packaging, personalisation, and worldwide white-glove delivery within 48 hours.</p>
+              <a href="#booking" class="btn btn--outline btn--sm"><span>Plan a Gift</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: PROCESS STEPS -->
+    <section class="section" style="background:var(--bg-secondary)" aria-labelledby="process-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">How It Works</span>
+          <h2 class="section-title" id="process-title">Our Service<br><em style="font-style:italic">Process</em></h2>
+        </div>
+        <div class="process-steps">
+          <div class="process-step reveal delay-1">
+            <div class="process-step__number">01</div>
+            <h3 class="process-step__title">Consultation</h3>
+            <p class="process-step__desc">Book an appointment online or by phone. Meet with your dedicated service advisor in our private consultation suite.</p>
+          </div>
+          <div class="process-step reveal delay-2">
+            <div class="process-step__number">02</div>
+            <h3 class="process-step__title">Assessment</h3>
+            <p class="process-step__desc">Our experts conduct a thorough evaluation of your piece, providing a detailed condition report and transparent quotation.</p>
+          </div>
+          <div class="process-step reveal delay-3">
+            <div class="process-step__number">03</div>
+            <h3 class="process-step__title">Craftsmanship</h3>
+            <p class="process-step__desc">Work begins in our on-site atelier, with regular progress updates and strict quality controls at every stage.</p>
+          </div>
+          <div class="process-step reveal delay-4">
+            <div class="process-step__number">04</div>
+            <h3 class="process-step__title">Presentation</h3>
+            <p class="process-step__desc">Your piece is returned in perfect condition, presented in our signature packaging with full service documentation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: REPAIR SHOWCASE -->
+    <section class="section section--dark" aria-labelledby="repair-title">
+      <div class="container container--wide">
+        <div class="responsive-split">
+          <div class="reveal-left">
+            <span class="eyebrow eyebrow--light">Expert Restoration</span>
+            <h2 class="section-title" id="repair-title" style="color:var(--ivory);margin-top:1rem">Watch Repair<br><em style="font-style:italic;color:var(--champagne)">Masterclass</em></h2>
+            <p style="color:rgba(247,243,234,0.6);line-height:1.75;margin-top:1.5rem">Every watch repair at Maison Lumière is undertaken by watchmakers trained at the Ecole d'Horlogerie de Genève. We handle everything from routine service to complex movement overhaul, including tourbillons, chronographs, and grande complications.</p>
+            <ul style="display:flex;flex-direction:column;gap:0.75rem;margin-top:1.5rem">
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.6);font-size:0.875rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Full movement disassembly, clean, and reassembly</li>
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.6);font-size:0.875rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Genuine manufacturer-spec replacement parts only</li>
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.6);font-size:0.875rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Water resistance testing and timing accuracy verification</li>
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.6);font-size:0.875rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>Case and bracelet polishing to original finish</li>
+              <li style="display:flex;align-items:center;gap:0.75rem;color:rgba(247,243,234,0.6);font-size:0.875rem"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px;flex-shrink:0"><polyline points="20 6 9 17 4 12"/></svg>2-year service warranty on all completed repairs</li>
+            </ul>
+            <a href="#booking" class="btn btn--outline" style="margin-top:2rem"><span>Book a Service</span></a>
+          </div>
+          <div class="reveal-right">
+            <div style="border-radius:var(--radius-xl);overflow:hidden" class="zoom-container lightbox-trigger" data-lightbox="assets/images/services-repair-mastery.png">
+              <img src="assets/images/services-repair-mastery.png" alt="Master horologist at work" loading="lazy" style="width:100%;display:block">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2 class="section-title" id="faq-title">Common<br><em style="font-style:italic">Questions</em></h2>
+        </div>
+        <div class="faq-section reveal delay-1">
+          <div class="faq-item">
+            <button class="faq-question">
+              How long does a watch service take?
+              <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer__inner">A standard service for a mechanical watch typically takes 3–6 weeks. Complex movements — tourbillons, perpetual calendars, and rattrapantes — may require 6–10 weeks. All timelines are quoted at the time of assessment, and we keep you updated throughout the process.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you service watches from all brands?
+              <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer__inner">We are authorised service centres for Patek Philippe, Audemars Piguet, and IWC Schaffhausen. We also service most major Swiss brands as independent specialists, including Rolex, Omega, Jaeger-LeCoultre, Panerai, and Cartier. Please contact us for confirmation regarding your specific timepiece.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              What is included in a jewellery valuation report?
+              <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer__inner">Our valuation reports include a full description of materials and construction, gemstone grading (4Cs for diamonds), current replacement value for insurance, estimated resale/estate value, dated authentication photos, and the signature of a GIA-certified gemologist. Reports are accepted by all major UK and international insurers.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              How does the bespoke commission process work?
+              <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer__inner">Your bespoke journey begins with a complimentary consultation with our creative director. We discuss your vision, occasion, and budget, then produce initial sketches and 3D renders for your approval. Once the design is confirmed, we source materials and begin crafting your unique piece. Most commissions take 8–16 weeks from concept to completion.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you offer finance options for purchases?
+              <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer__inner">Yes. We offer tailored 0% finance packages for purchases above £10,000, arranged through our trusted financial partners. Finance terms ranging from 12 to 60 months are available, subject to status and credit check. Please speak with your client advisor for full details.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              Is my piece insured while in your care?
+              <span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+            </button>
+            <div class="faq-answer"><div class="faq-answer__inner">Absolutely. All pieces entrusted to our care are fully insured under our Lloyd's of London all-risks policy for the full stated value of the item. We treat every piece with the same care we would extend to our own family heirlooms.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: BOOKING CTA FORM -->
+    <section class="section" style="background:var(--bg-tertiary)" id="booking" aria-labelledby="booking-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" style="margin-bottom:3rem">
+          <span class="eyebrow">Enquire Now</span>
+          <h2 class="section-title" id="booking-title">Book a<br><em style="font-style:italic">Service Appointment</em></h2>
+        </div>
+        <div class="booking-form reveal delay-1">
+          <form data-validate aria-label="Service booking form">
+            <div style="display:flex;flex-direction:column;gap:1.25rem">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="svc-first">First Name *</label>
+                  <input type="text" class="form-control" id="svc-first" placeholder="Edmund" required>
+                  <span class="form-error">Please enter your first name.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="svc-last">Last Name *</label>
+                  <input type="text" class="form-control" id="svc-last" placeholder="Ashworth" required>
+                  <span class="form-error">Please enter your last name.</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="svc-email">Email Address *</label>
+                  <input type="email" class="form-control" id="svc-email" placeholder="hello@example.com" required>
+                  <span class="form-error">Please enter a valid email.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="svc-phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="svc-phone" placeholder="+44 20 7495 0000">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="svc-service">Service Required *</label>
+                <select class="form-control" id="svc-service" required>
+                  <option value="">Select a service...</option>
+                  <option>Watch Restoration &amp; Repair</option>
+                  <option>Jewellery Valuation</option>
+                  <option>Bespoke Commission</option>
+                  <option>Engraving &amp; Personalisation</option>
+                  <option>Watch Authentication</option>
+                  <option>Gifting Concierge</option>
+                  <option>Other / General Enquiry</option>
+                </select>
+                <span class="form-error">Please select a service.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="svc-brand">Brand / Piece Description</label>
+                <input type="text" class="form-control" id="svc-brand" placeholder="e.g. Patek Philippe Nautilus 5711">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="svc-message">Additional Details</label>
+                <textarea class="form-control" id="svc-message" placeholder="Please describe your requirements, preferred appointment times, and any specific concerns..." style="min-height:120px"></textarea>
+              </div>
+              <div class="form-message"></div>
+              <button type="submit" class="btn btn--primary btn--lg" style="width:100%">
+                <span>Submit Enquiry</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand"><a href="index.html" class="footer__brand-logo">Maison Lumière</a><p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+        <div><h3 class="footer__col-title">Services</h3><ul class="footer__nav"><li><a href="services.html" class="footer__nav-link">Watch Repair</a></li><li><a href="services.html" class="footer__nav-link">Jewellery Valuation</a></li><li><a href="services.html" class="footer__nav-link">Bespoke Commission</a></li><li><a href="services.html" class="footer__nav-link">Gifting Concierge</a></li></ul></div>
+        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">Our Story</a></li><li><a href="blog.html" class="footer__nav-link">Journal</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
+        <div><h3 class="footer__col-title">Newsletter</h3><form class="newsletter-form" style="flex-direction:column;gap:0.75rem"><input type="email" class="form-control" placeholder="Your email" aria-label="Email" required><button type="submit" class="btn btn--primary btn--sm"><span>Join</span></button></form></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p><nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a><a href="sitemap.html" class="footer__legal-link">Sitemap</a></nav></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast-container" aria-live="polite"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

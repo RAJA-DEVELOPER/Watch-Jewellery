@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sitemap — all pages of the Maison Lumière website at a glance.">
+  <title>Sitemap | Maison Lumière</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .sitemap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
+    .sitemap-section h3 { font-family: var(--font-display); font-size: var(--text-2xl); margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+    .sitemap-list { display: flex; flex-direction: column; gap: 0.75rem; list-style: none; }
+    .sitemap-link { display: flex; align-items: center; gap: 0.75rem; font-size: 0.9rem; color: var(--text-muted); transition: color 0.2s, gap 0.2s; }
+    .sitemap-link:hover { color: var(--champagne-dark); gap: 1rem; }
+    .sitemap-link svg { width: 14px; height: 14px; flex-shrink: 0; color: var(--champagne-dark); }
+    @media (max-width: 900px) { .sitemap-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .sitemap-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="page-loader__logo">Maison Lumière</div><div class="page-loader__bar"></div></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header>
+    <nav class="navbar scrolled" role="navigation" aria-label="Main navigation">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+        <ul class="navbar__nav" role="list">
+          <li><a href="index.html" class="navbar__nav-link">Home</a></li>
+          <li><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
+          <li><a href="about.html" class="navbar__nav-link">About</a></li>
+          <li><a href="services.html" class="navbar__nav-link">Services</a></li>
+          <li><a href="blog.html" class="navbar__nav-link">Journal</a></li>
+          <li><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+          <a href="contact.html" class="btn btn--primary btn--sm"><span>Contact</span></a>
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__mobile-menu" role="dialog">
+      <a href="index.html" class="navbar__mobile-link">Home</a>
+      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      <a href="about.html" class="navbar__mobile-link">About</a>
+      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      <div class="navbar__mobile-controls"><button class="toggle-btn" data-theme-toggle>Theme</button></div>
+    </div>
+  </header>
+
+  <main id="main-content" style="padding-top:var(--navbar-height)">
+    <section style="background:var(--espresso);padding-block:5rem 4rem;text-align:center" aria-label="Sitemap hero">
+      <div class="container">
+        <nav style="display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.75rem;color:rgba(247,243,234,0.4);margin-bottom:1.5rem" aria-label="Breadcrumb">
+          <a href="index.html" style="color:rgba(247,243,234,0.4)">Home</a><span>/</span><span style="color:var(--champagne)">Sitemap</span>
+        </nav>
+        <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,3.5rem);color:var(--ivory);font-style:italic" class="reveal">Sitemap</h1>
+        <p style="color:rgba(247,243,234,0.5);margin-top:1rem" class="reveal delay-1">Every page of the Maison Lumière website, at a glance.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="sitemap-title">
+      <div class="container container--wide">
+        <h2 class="section-title reveal" id="sitemap-title" style="margin-bottom:3rem">Site<br><em style="font-style:italic">Directory</em></h2>
+        <div class="sitemap-grid">
+          <div class="sitemap-section reveal delay-1">
+            <h3>Main Pages</h3>
+            <ul class="sitemap-list">
+              <li><a href="index.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Home — Watch &amp; Jewellery Showroom</a></li>
+              <li><a href="home2.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Collections — Jewellery Gallery</a></li>
+              <li><a href="about.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>About — Our Story &amp; Heritage</a></li>
+              <li><a href="services.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Services — Repair &amp; Bespoke</a></li>
+              <li><a href="contact.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Contact — Visit &amp; Enquiry</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-section reveal delay-2">
+            <h3>Journal</h3>
+            <ul class="sitemap-list">
+              <li><a href="blog.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>The Journal — All Articles</a></li>
+              <li><a href="blog-detail.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>The Tourbillon Article</a></li>
+              <li><a href="blog.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Category: Horology</a></li>
+              <li><a href="blog.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Category: High Jewellery</a></li>
+              <li><a href="blog.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Category: Investment</a></li>
+              <li><a href="blog.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Category: Gifting &amp; Lifestyle</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-section reveal delay-3">
+            <h3>Collections</h3>
+            <ul class="sitemap-list">
+              <li><a href="index.html#watches" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Luxury Watches</a></li>
+              <li><a href="index.html#diamonds" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Diamond Jewellery</a></li>
+              <li><a href="index.html#gold" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Gold &amp; Silver</a></li>
+              <li><a href="index.html#gifting" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Gifting Concierge</a></li>
+              <li><a href="home2.html#jewellery-masonry" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Jewellery Gallery</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-section reveal delay-4">
+            <h3>Services</h3>
+            <ul class="sitemap-list">
+              <li><a href="services.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Watch Repair</a></li>
+              <li><a href="services.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Jewellery Valuation</a></li>
+              <li><a href="services.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Bespoke Commission</a></li>
+              <li><a href="services.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Engraving Service</a></li>
+              <li><a href="services.html#faq" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Service FAQ</a></li>
+              <li><a href="services.html#booking" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Book a Service</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-section reveal delay-5">
+            <h3>Legal</h3>
+            <ul class="sitemap-list">
+              <li><a href="privacy.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Privacy Policy</a></li>
+              <li><a href="terms.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Terms &amp; Conditions</a></li>
+              <li><a href="sitemap.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Sitemap</a></li>
+            </ul>
+          </div>
+          <div class="sitemap-section reveal delay-6">
+            <h3>Other Pages</h3>
+            <ul class="sitemap-list">
+              <li><a href="404.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>404 — Page Not Found</a></li>
+              <li><a href="maintenance.html" class="sitemap-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>Maintenance Mode</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand"><a href="index.html" class="footer__brand-logo">Maison Lumière</a><p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p></div>
+        <div><h3 class="footer__col-title">Legal</h3><ul class="footer__nav"><li><a href="privacy.html" class="footer__nav-link">Privacy Policy</a></li><li><a href="terms.html" class="footer__nav-link">Terms &amp; Conditions</a></li></ul></div>
+        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">About</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
+        <div></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p><nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a></nav></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast-container" aria-live="polite"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

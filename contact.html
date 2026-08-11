@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Maison Lumière — visit our Bond Street showroom, book a private consultation, or enquire about our collections.">
+  <title>Contact Us | Maison Lumière</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+    .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: var(--space-8); display: flex; flex-direction: column; gap: var(--space-4); text-align: center; align-items: center; transition: transform var(--duration-base) var(--ease-luxury), box-shadow var(--duration-base); }
+    .contact-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--border-accent); }
+    .contact-card__icon { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--teal), var(--teal-light)); display: flex; align-items: center; justify-content: center; }
+    .contact-card__icon svg { width: 28px; height: 28px; color: var(--champagne); }
+    .contact-card__title { font-family: var(--font-display); font-size: var(--text-xl); }
+    .contact-card__detail { font-size: var(--text-sm); color: var(--text-muted); line-height: 1.65; }
+    .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .hours-grid { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 2rem; }
+    .hours-day { font-size: var(--text-sm); color: var(--text-muted); }
+    .hours-time { font-size: var(--text-sm); font-weight: 600; color: var(--text-primary); }
+    .map-placeholder { width: 100%; aspect-ratio: 4/3; background: var(--bg-tertiary); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); position: relative; overflow: hidden; }
+    .map-placeholder::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--teal) 0%, var(--espresso) 100%); opacity: 0.3; }
+    @media (max-width: 900px) { .contact-cards { grid-template-columns: 1fr; } .contact-layout { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .contact-cards { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="page-loader__logo">Maison Lumière</div><div class="page-loader__bar"></div></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header>
+    <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+        <ul class="navbar__nav" role="list">
+          <li><a href="index.html" class="navbar__nav-link">Home</a></li>
+          <li><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
+          <li><a href="about.html" class="navbar__nav-link">About</a></li>
+          <li><a href="services.html" class="navbar__nav-link">Services</a></li>
+          <li><a href="blog.html" class="navbar__nav-link">Journal</a></li>
+          <li><a href="contact.html" class="navbar__nav-link active">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+          <button class="toggle-btn" data-rtl-toggle>RTL</button>
+          <a href="contact.html" class="btn btn--primary btn--sm"><span>Book Visit</span></a>
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__mobile-menu" role="dialog">
+      <a href="index.html" class="navbar__mobile-link">Home</a>
+      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      <a href="about.html" class="navbar__mobile-link">About</a>
+      <a href="services.html" class="navbar__mobile-link">Services</a>
+      <a href="blog.html" class="navbar__mobile-link">Journal</a>
+      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      <div class="navbar__mobile-controls">
+        <button class="toggle-btn" data-theme-toggle><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>Theme</button>
+        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="page-hero" aria-label="Contact hero">
+      <div class="page-hero__bg"><img src="assets/images/contact-hero-storefront.png" alt="Maison Lumière showroom" loading="eager"></div>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__content">
+        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="page-hero__breadcrumb-sep">/</span>
+          <span class="page-hero__breadcrumb-current">Contact</span>
+        </nav>
+        <h1 class="page-hero__title reveal">Get in Touch</h1>
+        <p class="page-hero__subtitle reveal delay-1">We would be honoured to welcome you to the Maison. Reach us in the way that suits you best.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CONTACT INFO CARDS -->
+    <section class="section" aria-labelledby="contact-info-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Find Us</span>
+          <h2 class="section-title" id="contact-info-title">Multiple Ways<br>to <em style="font-style:italic">Connect</em></h2>
+        </div>
+        <div class="contact-cards">
+          <div class="contact-card reveal delay-1">
+            <div class="contact-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3 class="contact-card__title">London Showroom</h3>
+            <p class="contact-card__detail">47 Bond Street<br>Mayfair, London W1S 1BT<br>United Kingdom</p>
+            <a href="#map" class="btn btn--outline btn--sm"><span>Get Directions</span></a>
+          </div>
+          <div class="contact-card reveal delay-2">
+            <div class="contact-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <h3 class="contact-card__title">Phone &amp; WhatsApp</h3>
+            <p class="contact-card__detail">London: +44 20 7495 0000<br>Dubai: +971 4 362 0000<br>WhatsApp: +44 7700 900000</p>
+            <a href="tel:+442074950000" class="btn btn--outline btn--sm"><span>Call Now</span></a>
+          </div>
+          <div class="contact-card reveal delay-3">
+            <div class="contact-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3 class="contact-card__title">Email Us</h3>
+            <p class="contact-card__detail">General: hello@maisonlumiere.com<br>Acquisitions: collect@maisonlumiere.com<br>Press: press@maisonlumiere.com</p>
+            <a href="mailto:hello@maisonlumiere.com" class="btn btn--outline btn--sm"><span>Send Email</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: STORE ENQUIRY FORM -->
+    <section class="section" style="background:var(--bg-secondary)" aria-labelledby="enquiry-title">
+      <div class="container container--wide">
+        <div class="contact-layout">
+          <div class="reveal-left">
+            <span class="eyebrow">Book a Private Viewing</span>
+            <h2 class="section-title" id="enquiry-title" style="margin-top:1rem">Store<br><em style="font-style:italic">Enquiry</em></h2>
+            <p style="color:var(--text-muted);line-height:1.75;margin-top:1.25rem;margin-bottom:2rem">Complete the form and one of our specialist advisors will contact you within four business hours to arrange your private consultation, confirm availability, and tailor the experience to your requirements.</p>
+            <div style="display:flex;flex-direction:column;gap:1.25rem">
+              <div style="display:flex;align-items:center;gap:1rem">
+                <div style="width:40px;height:40px;border-radius:50%;background:rgba(232,211,162,0.1);border:1px solid var(--border-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="font-size:0.9rem;color:var(--text-muted)">Dedicated advisor assigned within 4 hours</p>
+              </div>
+              <div style="display:flex;align-items:center;gap:1rem">
+                <div style="width:40px;height:40px;border-radius:50%;background:rgba(232,211,162,0.1);border:1px solid var(--border-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="font-size:0.9rem;color:var(--text-muted)">Private viewing suite reserved for your appointment</p>
+              </div>
+              <div style="display:flex;align-items:center;gap:1rem">
+                <div style="width:40px;height:40px;border-radius:50%;background:rgba(232,211,162,0.1);border:1px solid var(--border-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="font-size:0.9rem;color:var(--text-muted)">Complimentary refreshments during your visit</p>
+              </div>
+              <div style="display:flex;align-items:center;gap:1rem">
+                <div style="width:40px;height:40px;border-radius:50%;background:rgba(232,211,162,0.1);border:1px solid var(--border-accent);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="2" style="width:16px;height:16px"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <p style="font-size:0.9rem;color:var(--text-muted)">No obligation — explore at your own pace</p>
+              </div>
+            </div>
+          </div>
+          <div class="reveal-right">
+            <form data-validate aria-label="Contact enquiry form" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:clamp(2rem,4vw,3rem)">
+              <div style="display:flex;flex-direction:column;gap:1.25rem">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="ct-first">First Name *</label>
+                    <input type="text" class="form-control" id="ct-first" placeholder="Your first name" required>
+                    <span class="form-error">Required.</span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="ct-last">Last Name *</label>
+                    <input type="text" class="form-control" id="ct-last" placeholder="Your last name" required>
+                    <span class="form-error">Required.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="ct-email">Email Address *</label>
+                  <input type="email" class="form-control" id="ct-email" placeholder="hello@example.com" required>
+                  <span class="form-error">Please enter a valid email.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="ct-phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="ct-phone" placeholder="+44 20 7495 0000">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="ct-interest">Your Interest</label>
+                  <select class="form-control" id="ct-interest">
+                    <option value="">Select...</option>
+                    <option>Luxury Watch Purchase</option>
+                    <option>Diamond Jewellery</option>
+                    <option>Gold / Silver Jewellery</option>
+                    <option>Engagement Ring</option>
+                    <option>Gifting / Special Occasion</option>
+                    <option>Watch or Jewellery Repair</option>
+                    <option>Valuation / Authentication</option>
+                    <option>Bespoke Commission</option>
+                    <option>General Enquiry</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="ct-location">Preferred Showroom</label>
+                  <select class="form-control" id="ct-location">
+                    <option>London — Bond Street</option>
+                    <option>Dubai — DIFC</option>
+                    <option>Virtual / Video Consultation</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="ct-message">Message</label>
+                  <textarea class="form-control" id="ct-message" placeholder="Tell us about your requirements, preferred dates/times, or any specific pieces you'd like to view..." style="min-height:100px"></textarea>
+                </div>
+                <div class="form-message"></div>
+                <button type="submit" class="btn btn--primary btn--lg" style="width:100%">
+                  <span>Submit Enquiry</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: MAP PLACEHOLDER -->
+    <section class="section section--dark" id="map" aria-labelledby="map-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow eyebrow--light">Find Us</span>
+          <h2 class="section-title" id="map-title" style="color:var(--ivory)">Our<br><em style="font-style:italic;color:var(--champagne)">Locations</em></h2>
+        </div>
+        <div class="responsive-split reveal delay-1">
+          <div>
+            <div class="map-placeholder">
+              <div style="position:relative;z-index:1;text-align:center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="1.5" style="width:48px;height:48px;margin:0 auto 1rem"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <p style="font-family:var(--font-display);font-size:1.25rem;font-style:italic;color:var(--ivory)">London, Mayfair</p>
+                <p style="font-size:0.8rem;color:var(--platinum);margin-top:0.5rem">47 Bond Street, W1S 1BT</p>
+              </div>
+            </div>
+            <div style="margin-top:1.5rem;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg)">
+              <div class="hours-grid">
+                <span class="hours-day">Monday – Friday</span><span class="hours-time">10:00 – 19:00</span>
+                <span class="hours-day">Saturday</span><span class="hours-time">10:00 – 18:00</span>
+                <span class="hours-day">Sunday</span><span class="hours-time">By appointment</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="map-placeholder">
+              <div style="position:relative;z-index:1;text-align:center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne)" stroke-width="1.5" style="width:48px;height:48px;margin:0 auto 1rem"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <p style="font-family:var(--font-display);font-size:1.25rem;font-style:italic;color:var(--ivory)">Dubai, DIFC</p>
+                <p style="font-size:0.8rem;color:var(--platinum);margin-top:0.5rem">Gate Village, Building 3</p>
+              </div>
+            </div>
+            <div style="margin-top:1.5rem;padding:1.5rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg)">
+              <div class="hours-grid">
+                <span class="hours-day">Sunday – Thursday</span><span class="hours-time">10:00 – 20:00</span>
+                <span class="hours-day">Friday</span><span class="hours-time">14:00 – 20:00</span>
+                <span class="hours-day">Saturday</span><span class="hours-time">10:00 – 20:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SOCIAL LINKS & HOURS -->
+    <section class="section" aria-labelledby="social-title">
+      <div class="container">
+        <div class="responsive-split">
+          <div class="reveal-left">
+            <span class="eyebrow">Stay Connected</span>
+            <h2 class="section-title" id="social-title" style="margin-top:1rem">Follow the<br><em style="font-style:italic">Maison</em></h2>
+            <p style="color:var(--text-muted);line-height:1.75;margin-top:1.25rem;margin-bottom:2rem">Stay connected for exclusive previews, behind-the-scenes glimpses, and curated content from the world of luxury horology and jewellery.</p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap">
+              <a href="#" style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.5rem;border:1px solid var(--border);border-radius:var(--radius-lg);font-size:0.85rem;font-weight:600;color:var(--text-secondary);transition:all 0.2s" onmouseenter="this.style.borderColor='var(--champagne-dark)';this.style.color='var(--champagne-dark)'" onmouseleave="this.style.borderColor='';this.style.color=''">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                @MaisonLumiere
+              </a>
+              <a href="#" style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.5rem;border:1px solid var(--border);border-radius:var(--radius-lg);font-size:0.85rem;font-weight:600;color:var(--text-secondary);transition:all 0.2s" onmouseenter="this.style.borderColor='var(--champagne-dark)';this.style.color='var(--champagne-dark)'" onmouseleave="this.style.borderColor='';this.style.color=''">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                Twitter / X
+              </a>
+              <a href="#" style="display:flex;align-items:center;gap:0.75rem;padding:1rem 1.5rem;border:1px solid var(--border);border-radius:var(--radius-lg);font-size:0.85rem;font-weight:600;color:var(--text-secondary);transition:all 0.2s" onmouseenter="this.style.borderColor='var(--champagne-dark)';this.style.color='var(--champagne-dark)'" onmouseleave="this.style.borderColor='';this.style.color=''">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                YouTube
+              </a>
+            </div>
+          </div>
+          <div class="reveal-right" style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:2.5rem">
+            <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--champagne-dark);margin-bottom:1.5rem">Quick Contact Details</p>
+            <div style="display:flex;flex-direction:column;gap:1.25rem">
+              <div style="display:flex;gap:1rem;align-items:flex-start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne-dark)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><p style="font-weight:600;font-size:0.9rem">London</p><p style="font-size:0.85rem;color:var(--text-muted)">47 Bond Street, Mayfair W1S 1BT</p></div>
+              </div>
+              <div style="display:flex;gap:1rem;align-items:flex-start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne-dark)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><p style="font-weight:600;font-size:0.9rem">Dubai</p><p style="font-size:0.85rem;color:var(--text-muted)">Gate Village Building 3, DIFC</p></div>
+              </div>
+              <div style="display:flex;gap:1rem;align-items:flex-start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne-dark)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;margin-top:2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.72 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.63 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div><p style="font-weight:600;font-size:0.9rem">+44 20 7495 0000</p><p style="font-size:0.85rem;color:var(--text-muted)">Available Mon–Sat 10am–7pm</p></div>
+              </div>
+              <div style="display:flex;gap:1rem;align-items:flex-start">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne-dark)" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;margin-top:2px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <div><p style="font-weight:600;font-size:0.9rem">hello@maisonlumiere.com</p><p style="font-size:0.85rem;color:var(--text-muted)">Reply within 4 business hours</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FAQ FOR VISITS -->
+    <section class="section" style="background:var(--bg-secondary)" aria-labelledby="visit-faq-title">
+      <div class="container" style="max-width:780px">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">Visiting the Maison</span>
+          <h2 class="section-title" id="visit-faq-title">What to<br><em style="font-style:italic">Expect</em></h2>
+        </div>
+        <div class="reveal delay-1">
+          <div class="faq-item">
+            <button class="faq-question">Is an appointment necessary?<span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">Walk-ins are always welcome during opening hours. However, we strongly recommend booking a private appointment to ensure your dedicated advisor has reserved sufficient time and prepared the specific pieces you wish to view.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Is parking available near the Bond Street showroom?<span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">The nearest car park is Q-Park Mayfair on Upper Grosvenor Street (10 minutes walk). Alternatively, Bond Street Underground Station is a 3-minute walk. For clients arriving by chauffeur, there is a drop-off zone on New Bond Street.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Can I bring in an existing piece for appraisal?<span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">Absolutely. We offer complimentary preliminary assessments during your visit. For formal insurance valuations, please book a specific valuation appointment to ensure a qualified gemologist is available. You can also leave your piece with us for a written assessment within 48 hours.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">Do you offer international shipping?<span class="faq-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+            <div class="faq-answer"><div class="faq-answer__inner">Yes. We offer fully insured white-glove delivery worldwide through our specialist luxury courier partners. All shipments are fully insured for their stated value and require an in-person signature upon delivery. International shipping fees and lead times vary by destination.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand"><a href="index.html" class="footer__brand-logo">Maison Lumière</a><p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+        <div><h3 class="footer__col-title">Collections</h3><ul class="footer__nav"><li><a href="index.html" class="footer__nav-link">Luxury Watches</a></li><li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li><li><a href="services.html" class="footer__nav-link">Services</a></li></ul></div>
+        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">Our Story</a></li><li><a href="blog.html" class="footer__nav-link">The Journal</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
+        <div><h3 class="footer__col-title">Newsletter</h3><form class="newsletter-form" style="flex-direction:column;gap:0.75rem"><input type="email" class="form-control" placeholder="Your email" aria-label="Email" required><button type="submit" class="btn btn--primary btn--sm"><span>Join</span></button></form></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p><nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a><a href="sitemap.html" class="footer__legal-link">Sitemap</a></nav></div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast-container" aria-live="polite"></div>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

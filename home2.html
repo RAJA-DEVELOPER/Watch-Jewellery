@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maison Lumière Alternative Home — Explore our luxury watch and jewellery collections through a fresh editorial lens.">
+  <meta property="og:title" content="Maison Lumière | Luxury Collections">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>Maison Lumière | Collections & Craftsmanship</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    .h2-hero {
+      position: relative;
+      height: 100svh;
+      min-height: 640px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--espresso);
+    }
+    .h2-hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .h2-hero__bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.45;
+    }
+    .h2-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(18,60,58,0.3) 0%, rgba(10,10,10,0.8) 70%);
+      z-index: 1;
+    }
+    .h2-hero__content {
+      position: relative; z-index: 2;
+      padding-inline: var(--gutter);
+      max-width: var(--container-max);
+      margin-inline: auto;
+      width: 100%;
+    }
+    .masonry-grid {
+      columns: 3;
+      column-gap: var(--space-5);
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: var(--space-5);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform var(--duration-epic) var(--ease-luxury);
+    }
+    .masonry-item:hover img { transform: scale(1.06); }
+    .masonry-item__caption {
+      position: absolute;
+      bottom: 0; inset-inline: 0;
+      padding: var(--space-5);
+      background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 100%);
+      color: var(--ivory);
+      transform: translateY(8px);
+      opacity: 0;
+      transition: all var(--duration-base) var(--ease-luxury);
+    }
+    .masonry-item:hover .masonry-item__caption { opacity: 1; transform: translateY(0); }
+    .masonry-item__caption h3 { font-family: var(--font-display); font-size: var(--text-lg); }
+    .masonry-item__caption p { font-size: var(--text-xs); color: var(--champagne); margin-top: 4px; }
+    @media (max-width: 900px) { .masonry-grid { columns: 2; } }
+    @media (max-width: 600px) { .masonry-grid { columns: 1; } }
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      min-height: 540px;
+    }
+    .about-split__media img { width: 100%; height: 100%; object-fit: cover; }
+    .about-split__content {
+      padding: clamp(3rem, 5vw, 5rem);
+      background: var(--bg-card);
+      display: flex; flex-direction: column; justify-content: center; gap: var(--space-5);
+    }
+    @media (max-width: 768px) {
+      .about-split { grid-template-columns: 1fr; }
+      .about-split__media { min-height: 260px; }
+    }
+    .milestones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+    .milestone-item { background: var(--bg-secondary); padding: 3rem 2rem; text-align: center; }
+    .milestone-number { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4rem); font-weight: 700; color: var(--champagne-dark); line-height: 1; }
+    .milestone-label { font-size: var(--text-sm); font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.5rem; }
+    @media (max-width: 900px) { .milestones { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .milestones { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="page-loader" aria-hidden="true">
+    <div class="page-loader__logo">Maison Lumière</div>
+    <div class="page-loader__sub">Since 1987 · Geneva · London · Dubai</div>
+    <div class="page-loader__bar"></div>
+  </div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="page-transition" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header>
+    <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo">
+          <span class="navbar__logo-text">Maison Lumière</span>
+          <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+        </a>
+        <ul class="navbar__nav" role="list">
+          <li class="navbar__nav-item"><a href="index.html" class="navbar__nav-link">Home</a></li>
+          <li class="navbar__nav-item"><a href="home2.html" class="navbar__nav-link active">Home 2</a></li>
+          <li class="navbar__nav-item"><a href="about.html" class="navbar__nav-link">About</a></li>
+          <li class="navbar__nav-item"><a href="services.html" class="navbar__nav-link">Services</a></li>
+          <li class="navbar__nav-item"><a href="blog.html" class="navbar__nav-link">Journal</a></li>
+          <li class="navbar__nav-item"><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
+          <button class="toggle-btn" data-rtl-toggle>RTL</button>
+          <a href="contact.html" class="btn btn--primary btn--sm"><span>Book Visit</span></a>
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+    <div class="navbar__mobile-menu" role="dialog">
+      <a href="index.html" class="navbar__mobile-link">Home</a>
+      <a href="home2.html" class="navbar__mobile-link active">Home 2</a>
+      <a href="about.html" class="navbar__mobile-link">About</a>
+      <a href="services.html" class="navbar__mobile-link">Services</a>
+      <a href="blog.html" class="navbar__mobile-link">Journal</a>
+      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      <div class="navbar__mobile-controls">
+        <button class="toggle-btn" data-theme-toggle><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>Theme</button>
+        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- SECTION 1: FULLSCREEN PARALLAX HERO -->
+    <section class="h2-hero" aria-label="Collections hero">
+      <div class="h2-hero__bg parallax-container">
+        <img src="assets/images/h2-hero-parallax.png" alt="Luxury watch and jewellery collection" loading="eager" data-parallax="0.2">
+      </div>
+      <div class="h2-hero__overlay" aria-hidden="true"></div>
+      <div class="h2-hero__content">
+        <div style="max-width:700px;display:flex;flex-direction:column;gap:1.5rem">
+          <span class="eyebrow eyebrow--light reveal">The Maison Lumière Edit</span>
+          <h1 class="reveal delay-1" style="font-family:var(--font-display);font-size:clamp(3rem,9vw,7rem);font-weight:700;color:var(--ivory);line-height:1;letter-spacing:-0.03em">Every<br>Collection,<br><em style="color:var(--champagne)">Perfected</em></h1>
+          <p class="reveal delay-2" style="color:var(--platinum);font-size:1.1rem;line-height:1.7;max-width:480px">Handpicked from the world's finest ateliers — our curation represents the pinnacle of horological and jewellery artistry.</p>
+          <div class="reveal delay-3" style="display:flex;gap:1rem;flex-wrap:wrap">
+            <a href="#jewellery-masonry" class="btn btn--primary btn--lg"><span>View Jewellery</span></a>
+            <a href="index.html#watches" class="btn btn--ghost btn--lg"><span>View Watches</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT TEASER SPLIT -->
+    <section class="section" aria-labelledby="about-teaser-title">
+      <div class="container container--wide">
+        <div class="about-split reveal-scale">
+          <div class="about-split__media">
+            <img src="assets/images/h2-about-heritage.png" alt="Master watchmaker at work" loading="lazy">
+          </div>
+          <div class="about-split__content">
+            <span class="eyebrow">Our Heritage</span>
+            <h2 class="section-title" id="about-teaser-title">Four Decades of<br><em style="font-style:italic">Uncompromising</em> Excellence</h2>
+            <p style="color:var(--text-muted);line-height:1.75">Since 1987, Maison Lumière has been the trusted name for discerning collectors and connoisseurs. From our Bond Street atelier, we have curated relationships with over 40 of the world's most prestigious watch and jewellery maisons.</p>
+            <p style="color:var(--text-muted);line-height:1.75">Every piece we present carries with it a story of extraordinary craftsmanship — and our promise of authenticity, backed by full provenance documentation and lifetime after-sales care.</p>
+            <a href="about.html" class="btn btn--teal" style="align-self:flex-start"><span>Our Full Story</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: JEWELLERY MASONRY -->
+    <section class="section" style="background:var(--bg-tertiary)" id="jewellery-masonry" aria-labelledby="masonry-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal">
+          <span class="eyebrow">High Jewellery</span>
+          <h2 class="section-title" id="masonry-title">The Jewellery<br><em style="font-style:italic">Gallery</em></h2>
+        </div>
+        <div class="masonry-grid">
+          <div class="masonry-item reveal delay-1" data-lightbox="assets/images/h2-masonry-1-diamond.png" data-lightbox-alt="Diamond Collection">
+            <img src="assets/images/h2-masonry-1-diamond.png" alt="Diamond collection" loading="lazy">
+            <div class="masonry-item__caption"><h3>Diamond Atelier</h3><p>From £ 8,500</p></div>
+          </div>
+          <div class="masonry-item reveal delay-2" data-lightbox="assets/images/h2-masonry-2-gold.png">
+            <img src="assets/images/h2-masonry-2-gold.png" alt="Gold collection" loading="lazy">
+            <div class="masonry-item__caption"><h3>Gold Collection</h3><p>From £ 3,200</p></div>
+          </div>
+          <div class="masonry-item reveal delay-3" data-lightbox="assets/images/h2-masonry-3-sapphire.png">
+            <img src="assets/images/h2-masonry-3-sapphire.png" alt="Jewellery collection" loading="lazy">
+            <div class="masonry-item__caption"><h3>Sapphire &amp; Platinum</h3><p>From £ 18,000</p></div>
+          </div>
+          <div class="masonry-item reveal delay-4" data-lightbox="assets/images/h2-masonry-4-gifting.png">
+            <img src="assets/images/h2-masonry-4-gifting.png" alt="Gifting collection" loading="lazy">
+            <div class="masonry-item__caption"><h3>Gift Collection</h3><p>From £ 1,500</p></div>
+          </div>
+          <div class="masonry-item reveal delay-5" data-lightbox="assets/images/h2-masonry-5-prestige.png">
+            <img src="assets/images/h2-masonry-5-prestige.png" alt="Watch collection" loading="lazy">
+            <div class="masonry-item__caption"><h3>Prestige Watches</h3><p>From £ 22,000</p></div>
+          </div>
+          <div class="masonry-item reveal delay-6" data-lightbox="assets/images/h2-masonry-6-bespoke.png">
+            <img src="assets/images/h2-masonry-6-bespoke.png" alt="Craftsmanship" loading="lazy">
+            <div class="masonry-item__caption"><h3>Bespoke Atelier</h3><p>By Appointment</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: GIFTING CONCIERGE -->
+    <section class="section section--dark" aria-labelledby="gifting2-title">
+      <div class="container">
+        <div class="responsive-split">
+          <div class="reveal-left" style="display:flex;flex-direction:column;gap:1.5rem">
+            <span class="eyebrow eyebrow--light">Bespoke Gifting</span>
+            <h2 class="section-title" id="gifting2-title" style="color:var(--ivory)">Gifts That<br><em style="font-style:italic;color:var(--champagne)">Transcend</em><br>the Moment</h2>
+            <p style="color:rgba(247,243,234,0.6);line-height:1.75">Let our gifting specialists craft the perfect luxury experience — whether it's a surprise engagement, a milestone anniversary, or a corporate appreciation that demands the extraordinary.</p>
+            <div class="responsive-grid-2" style="margin-top:0.5rem">
+              <div style="background:rgba(232,211,162,0.06);border:1px solid rgba(232,211,162,0.12);border-radius:1rem;padding:1.25rem;display:flex;flex-direction:column;gap:0.5rem">
+                <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne)">Engraving</span>
+                <span style="font-size:0.875rem;color:rgba(247,243,234,0.5)">Personalised laser engraving on all pieces</span>
+              </div>
+              <div style="background:rgba(232,211,162,0.06);border:1px solid rgba(232,211,162,0.12);border-radius:1rem;padding:1.25rem;display:flex;flex-direction:column;gap:0.5rem">
+                <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne)">Packaging</span>
+                <span style="font-size:0.875rem;color:rgba(247,243,234,0.5)">Signature obsidian &amp; gold presentation</span>
+              </div>
+              <div style="background:rgba(232,211,162,0.06);border:1px solid rgba(232,211,162,0.12);border-radius:1rem;padding:1.25rem;display:flex;flex-direction:column;gap:0.5rem">
+                <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne)">Delivery</span>
+                <span style="font-size:0.875rem;color:rgba(247,243,234,0.5)">White-glove insured worldwide delivery</span>
+              </div>
+              <div style="background:rgba(232,211,162,0.06);border:1px solid rgba(232,211,162,0.12);border-radius:1rem;padding:1.25rem;display:flex;flex-direction:column;gap:0.5rem">
+                <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne)">Corporate</span>
+                <span style="font-size:0.875rem;color:rgba(247,243,234,0.5)">Tailored corporate gifting programmes</span>
+              </div>
+            </div>
+            <a href="contact.html" class="btn btn--outline" style="align-self:flex-start;margin-top:0.5rem"><span>Start Planning</span></a>
+          </div>
+          <div class="reveal-right">
+            <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/5" class="zoom-container">
+              <img src="assets/images/h2-gifting-showcase.png" alt="Luxury gift presentation" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: MILESTONES COUNTER -->
+    <section aria-labelledby="milestones-title">
+      <div class="container container--wide">
+        <div class="section-header section-header--center reveal" style="padding-top:var(--section-py)">
+          <span class="eyebrow">Our Legacy in Numbers</span>
+          <h2 class="section-title" id="milestones-title">A Heritage of<br><em style="font-style:italic">Achievement</em></h2>
+        </div>
+      </div>
+      <div class="milestones">
+        <div class="milestone-item reveal delay-1">
+          <p class="milestone-number"><span data-counter="38" data-suffix="+">38+</span></p>
+          <p class="milestone-label">Years of Excellence</p>
+        </div>
+        <div class="milestone-item reveal delay-2">
+          <p class="milestone-number"><span data-counter="12000" data-suffix="+">12,000+</span></p>
+          <p class="milestone-label">Satisfied Clients</p>
+        </div>
+        <div class="milestone-item reveal delay-3">
+          <p class="milestone-number"><span data-counter="40" data-suffix="+">40+</span></p>
+          <p class="milestone-label">Prestige Brands</p>
+        </div>
+        <div class="milestone-item reveal delay-4">
+          <p class="milestone-number"><span data-counter="98" data-suffix="%">98%</span></p>
+          <p class="milestone-label">Client Satisfaction</p>
+        </div>
+      </div>
+      <div style="padding-bottom:var(--section-py)"></div>
+    </section>
+
+    <!-- SECTION 6: NEWSLETTER -->
+    <section class="section section--teal" aria-labelledby="newsletter2-title">
+      <div class="container">
+        <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem" class="reveal">
+          <span class="eyebrow eyebrow--light">The Private List</span>
+          <h2 class="section-title" id="newsletter2-title" style="color:var(--ivory)">Join Our Inner<br><em style="font-style:italic;color:var(--champagne)">Circle</em></h2>
+          <p style="color:rgba(247,243,234,0.6);max-width:500px;line-height:1.75">Be the first to receive exclusive previews, private sale invitations, and behind-the-scenes stories from our ateliers in Geneva and London.</p>
+          <form class="newsletter-form" aria-label="Newsletter subscription" style="margin-top:1rem">
+            <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address" required>
+            <button type="submit" class="btn btn--primary"><span>Subscribe</span></button>
+          </form>
+          <p style="font-size:0.75rem;color:rgba(247,243,234,0.3)">No spam. Unsubscribe at any time. Read our <a href="privacy.html" style="color:var(--champagne)">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (shared) -->
+  <footer class="footer" role="contentinfo">
+    <div class="container container--wide">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-logo">Maison Lumière</a>
+          <p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer__social-link" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Collections</h3>
+          <ul class="footer__nav">
+            <li><a href="index.html#watches" class="footer__nav-link">Luxury Watches</a></li>
+            <li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li>
+            <li><a href="index.html#gold" class="footer__nav-link">Gold &amp; Silver</a></li>
+            <li><a href="services.html" class="footer__nav-link">Repair Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Maison</h3>
+          <ul class="footer__nav">
+            <li><a href="about.html" class="footer__nav-link">Our Story</a></li>
+            <li><a href="blog.html" class="footer__nav-link">The Journal</a></li>
+            <li><a href="contact.html" class="footer__nav-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer__col-title">Quick Newsletter</h3>
+          <form class="newsletter-form" style="flex-direction:column;gap:0.75rem" aria-label="Newsletter">
+            <input type="email" class="form-control" placeholder="Your email" aria-label="Email" required>
+            <button type="submit" class="btn btn--primary btn--sm"><span>Join</span></button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p>
+        <nav class="footer__legal">
+          <a href="privacy.html" class="footer__legal-link">Privacy</a>
+          <a href="terms.html" class="footer__legal-link">Terms</a>
+          <a href="sitemap.html" class="footer__legal-link">Sitemap</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <div class="toast-container" aria-live="polite"></div>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/slider.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/components.js" defer></script>
+</body>
+</html>

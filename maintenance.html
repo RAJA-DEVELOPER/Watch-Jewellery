@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Maison Lumière is currently undergoing scheduled maintenance. We will be back shortly.">
+  <title>Maintenance | Maison Lumière</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100svh;
+      background: var(--obsidian);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-body);
+    }
+
+    .maint-bg {
+      position: absolute; inset: 0;
+    }
+    .maint-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.12;
+    }
+    .maint-overlay {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(18,60,58,0.5) 0%, rgba(10,10,10,0.97) 70%);
+    }
+
+    .maint-content {
+      position: relative; z-index: 2;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      max-width: 600px;
+    }
+
+    .maint-deco { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--champagne-dark), transparent); }
+
+    .maint-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--champagne);
+      letter-spacing: 0.05em;
+    }
+
+    .maint-gear {
+      width: 80px;
+      height: 80px;
+      animation: spin 12s linear infinite;
+      opacity: 0.35;
+    }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .maint-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      color: var(--ivory);
+      line-height: 1.1;
+      font-style: italic;
+    }
+
+    .maint-subtitle {
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: rgba(247,243,234,0.45);
+      line-height: 1.75;
+    }
+
+    /* Countdown */
+    .maint-countdown {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(232,211,162,0.06);
+      border: 1px solid rgba(232,211,162,0.12);
+      border-radius: 0.75rem;
+      padding: 1rem 1.5rem;
+      min-width: 80px;
+    }
+    .countdown-number {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--champagne-dark);
+      line-height: 1;
+    }
+    .countdown-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(247,243,234,0.3);
+    }
+    .countdown-sep {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: rgba(232,211,162,0.2);
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    /* Newsletter */
+    .maint-newsletter {
+      display: flex;
+      gap: 0.5rem;
+      background: rgba(247,243,234,0.04);
+      border: 1px solid rgba(232,211,162,0.15);
+      border-radius: 9999px;
+      padding: 0.375rem 0.375rem 0.375rem 1.25rem;
+      max-width: 400px;
+      width: 100%;
+    }
+    .maint-newsletter input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: var(--ivory);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+    }
+    .maint-newsletter input::placeholder { color: rgba(247,243,234,0.3); }
+    .maint-newsletter button {
+      flex-shrink: 0;
+      padding: 0.6rem 1.25rem;
+      background: var(--champagne);
+      color: var(--obsidian);
+      border: none;
+      border-radius: 9999px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .maint-newsletter button:hover { background: var(--champagne-dark); transform: translateX(2px); }
+
+    .maint-social {
+      display: flex;
+      gap: 1rem;
+    }
+    .maint-social a {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(247,243,234,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(247,243,234,0.3);
+      transition: all 0.2s;
+    }
+    .maint-social a:hover { border-color: var(--champagne-dark); color: var(--champagne-dark); }
+    .maint-social svg { width: 16px; height: 16px; }
+
+    .maint-footer-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.7rem;
+      color: rgba(247,243,234,0.2);
+      letter-spacing: 0.08em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .maint-footer-links a { color: inherit; transition: color 0.2s; }
+    .maint-footer-links a:hover { color: var(--champagne-dark); }
+
+    /* Decorative rings */
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(232,211,162,0.04);
+      pointer-events: none;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BG image -->
+  <div class="maint-bg" aria-hidden="true">
+    <img src="assets/images/maintenance-bg-clockwork.png" alt="">
+    <div class="maint-overlay"></div>
+  </div>
+
+  <!-- Rings -->
+  <div class="ring" style="width:400px;height:400px" aria-hidden="true"></div>
+  <div class="ring" style="width:700px;height:700px" aria-hidden="true"></div>
+  <div class="ring" style="width:1000px;height:1000px" aria-hidden="true"></div>
+  <div class="ring" style="width:1300px;height:1300px" aria-hidden="true"></div>
+
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <main id="main-content">
+    <div class="maint-content">
+
+      <!-- Logo -->
+      <p class="maint-logo">Maison Lumière</p>
+
+      <!-- Divider -->
+      <div class="maint-deco" aria-hidden="true"></div>
+
+      <!-- Gear icon -->
+      <svg class="maint-gear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--champagne-dark)" stroke-width="1.5" aria-hidden="true">
+        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+      </svg>
+
+      <!-- Title -->
+      <h1 class="maint-title">We're Being<br>Serviced</h1>
+      <p class="maint-subtitle">Like a fine Swiss timepiece, our website is currently undergoing scheduled maintenance. We'll be back, ticking perfectly, very soon. Thank you for your patience.</p>
+
+      <!-- Countdown -->
+      <div class="maint-countdown" id="countdown" aria-label="Time until site returns">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-hours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <span class="countdown-sep" aria-hidden="true">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-minutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <span class="countdown-sep" aria-hidden="true">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-seconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <!-- Newsletter subscribe -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:0.75rem;width:100%">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(247,243,234,0.3)">Notify me when you're back</p>
+        <form class="maint-newsletter" aria-label="Notify me when site returns" id="maintForm">
+          <input type="email" placeholder="your@email.com" aria-label="Email address" required>
+          <button type="submit">Notify Me</button>
+        </form>
+      </div>
+
+      <!-- Divider -->
+      <div class="maint-deco" aria-hidden="true"></div>
+
+      <!-- Social -->
+      <div class="maint-social" aria-label="Follow us on social media">
+        <a href="#" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" aria-label="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter / X">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+        </a>
+      </div>
+
+      <!-- Footer links -->
+      <div class="maint-footer-links">
+        <span>+44 20 7495 0000</span>
+        <a href="mailto:hello@maisonlumiere.com">hello@maisonlumiere.com</a>
+        <span>© 2026 Maison Lumière</span>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // Countdown — 4 hours from page load (adjust target as needed)
+    const target = new Date(Date.now() + 4 * 60 * 60 * 1000);
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    function updateCountdown() {
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        document.getElementById('cd-hours').textContent = '00';
+        document.getElementById('cd-minutes').textContent = '00';
+        document.getElementById('cd-seconds').textContent = '00';
+        return;
+      }
+      const hours = Math.floor(diff / 3600000);
+      const minutes = Math.floor((diff % 3600000) / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-hours').textContent = pad(hours);
+      document.getElementById('cd-minutes').textContent = pad(minutes);
+      document.getElementById('cd-seconds').textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Form
+    document.getElementById('maintForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = this.querySelector('input[type="email"]').value;
+      if (email) {
+        this.innerHTML = '<p style="font-size:0.875rem;color:var(--champagne-dark);font-weight:600;padding:0.75rem 0">✓ We\'ll notify you when we\'re back. Thank you!</p>';
+      }
+    });
+
+    // Cursor
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+    if (dot && ring) {
+      document.addEventListener('mousemove', e => {
+        dot.style.left = e.clientX + 'px';
+        dot.style.top = e.clientY + 'px';
+        ring.style.left = e.clientX + 'px';
+        ring.style.top = e.clientY + 'px';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -254,6 +254,24 @@ function initPageTransitions() {
   const overlay = document.querySelector('.page-transition');
   if (!overlay) return;
 
+  let pendingNav = null;
+
+  function resetUIState() {
+    overlay.classList.remove('active');
+    if (pendingNav) {
+      clearTimeout(pendingNav);
+      pendingNav = null;
+    }
+    const hamburger = document.querySelector('.navbar__hamburger');
+    const mobileMenu = document.querySelector('.navbar__mobile-menu');
+    if (hamburger) hamburger.classList.remove('open');
+    if (mobileMenu) mobileMenu.classList.remove('open');
+    document.querySelectorAll('.lightbox.open, [data-modal].open').forEach(el => {
+      el.classList.remove('open');
+    });
+    document.body.style.overflow = '';
+  }
+
   document.querySelectorAll('a[href]').forEach(link => {
     const href = link.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('mailto:') ||
@@ -262,14 +280,15 @@ function initPageTransitions() {
     link.addEventListener('click', e => {
       e.preventDefault();
       overlay.classList.add('active');
-      setTimeout(() => {
+      pendingNav = setTimeout(() => {
         window.location.href = href;
       }, 600);
     });
   });
 
-  // Reveal on load
-  overlay.classList.remove('active');
+  // Reveal on load (also fires on back/forward cache restores)
+  resetUIState();
+  window.addEventListener('pageshow', resetUIState);
 }
 
 /* ══════════════════════════════════════════════════════════

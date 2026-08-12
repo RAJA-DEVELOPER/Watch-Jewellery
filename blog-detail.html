@@ -38,33 +38,85 @@
   <header>
     <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
       <div class="navbar__inner">
-        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Maison Lumière Home">
+          <span class="navbar__logo-text">Maison Lumière</span>
+          <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+        </a>
+
+        <!-- Desktop Nav -->
         <ul class="navbar__nav" role="list">
-          <li><a href="index.html" class="navbar__nav-link">Home</a></li>
-          <li><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
-          <li><a href="about.html" class="navbar__nav-link">About</a></li>
-          <li><a href="services.html" class="navbar__nav-link">Services</a></li>
-          <li><a href="blog.html" class="navbar__nav-link active">Journal</a></li>
-          <li><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+          <li class="navbar__nav-item">
+            <a href="index.html" class="navbar__nav-link">Home</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="home2.html" class="navbar__nav-link">Home 2</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="about.html" class="navbar__nav-link">About</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="services.html" class="navbar__nav-link">Services</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="blog.html" class="navbar__nav-link active">Journal</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="contact.html" class="navbar__nav-link">Contact</a>
+          </li>
         </ul>
+
+        <!-- Actions -->
         <div class="navbar__actions">
-          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
-          <button class="toggle-btn" data-rtl-toggle>RTL</button>
-          <a href="contact.html" class="btn btn--primary btn--sm"><span>Book Visit</span></a>
-          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+          <!-- Theme toggle -->
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme" id="themeToggle">
+            <span class="theme-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+
+          <!-- RTL toggle -->
+          <button class="toggle-btn" data-rtl-toggle aria-label="Toggle RTL/LTR" id="rtlToggle">RTL</button>
+
+          <!-- CTA -->
+          <a href="contact.html" class="btn btn--primary btn--sm">
+            <span>Book Visit</span>
+          </a>
+
+          <!-- Hamburger -->
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
         </div>
+
       </div>
     </nav>
-    <div class="navbar__mobile-menu" role="dialog">
-      <a href="index.html" class="navbar__mobile-link">Home</a>
-      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
-      <a href="about.html" class="navbar__mobile-link">About</a>
-      <a href="services.html" class="navbar__mobile-link">Services</a>
-      <a href="blog.html" class="navbar__mobile-link">Journal</a>
-      <a href="contact.html" class="navbar__mobile-link">Contact</a>
+
+    <!-- Mobile Menu -->
+    <div class="navbar__mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <div class="navbar__mobile-item">
+        <a href="index.html" class="navbar__mobile-link">Home</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="about.html" class="navbar__mobile-link">About</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="services.html" class="navbar__mobile-link">Services</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="blog.html" class="navbar__mobile-link active">Journal</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      </div>
       <div class="navbar__mobile-controls">
-        <button class="toggle-btn" data-theme-toggle><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>Theme</button>
-        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+        <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center">
+          <span>Book Visit</span>
+        </a>
       </div>
     </div>
   </header>
@@ -73,7 +125,7 @@
 
     <!-- SECTION 1: ARTICLE HERO -->
     <section class="page-hero" style="min-height:65vh" aria-label="Article hero">
-      <div class="page-hero__bg"><img src="assets/images/bdetail-hero-tourbillon.png" alt="Master watchmaker with tourbillon" loading="eager"></div>
+      <div class="page-hero__bg"><img id="detail-hero-img" src="assets/images/bdetail-hero-tourbillon.png" alt="Master watchmaker with tourbillon" loading="eager"></div>
       <div class="page-hero__overlay" aria-hidden="true"></div>
       <div class="page-hero__content" style="max-width:800px">
         <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
@@ -82,15 +134,10 @@
           <span class="page-hero__breadcrumb-current">Article</span>
         </nav>
         <div class="reveal" style="margin-top:0.5rem">
-          <span class="blog-card__tag" style="display:inline-block;margin-bottom:1rem">Horology</span>
+          <span class="blog-card__tag" id="detail-hero-tag" style="display:inline-block;margin-bottom:1rem">Horology</span>
         </div>
-        <h1 class="page-hero__title reveal delay-1" style="font-size:clamp(1.75rem,5vw,3.5rem);text-align:center">The Tourbillon: Why Watchmaking's Greatest Achievement Defies the Digital Age</h1>
-        <div class="reveal delay-2" style="display:flex;align-items:center;gap:1rem;font-size:0.8rem;color:rgba(247,243,234,0.5);flex-wrap:wrap;justify-content:center;margin-top:0.5rem">
-          <span>Sir Edmund Ashworth — Founder</span>
-          <span>·</span>
-          <time datetime="2026-08-05">August 5, 2026</time>
-          <span>·</span>
-          <span>8 min read</span>
+        <h1 class="page-hero__title reveal delay-1" id="detail-hero-title" style="font-size:clamp(1.75rem,5vw,3.5rem);text-align:center">The Tourbillon: Why Watchmaking's Greatest Achievement Defies the Digital Age</h1>
+        <div class="reveal delay-2" id="detail-hero-meta" style="display:flex;align-items:center;gap:1rem;font-size:0.8rem;color:rgba(247,243,234,0.5);flex-wrap:wrap;justify-content:center;margin-top:0.5rem">
         </div>
       </div>
     </section>
@@ -101,53 +148,12 @@
         <div class="article-layout">
           <!-- Main Content -->
           <article>
-            <div class="article-body reveal">
-              <p>Abraham-Louis Breguet patented the tourbillon in 1801 with a singular purpose: to counteract the effects of gravity on a pocket watch movement. Worn vertically in a waistcoat pocket, the escapement would consistently be in the same gravitational orientation, causing positional errors to accumulate over time. Breguet's genius was to mount the entire escapement and balance wheel within a rotating cage, completing one revolution per minute, thereby averaging out gravitational errors across all positions.</p>
-
-              <p>Today, that original mechanical rationale barely applies. Modern wristwatches are worn on a moving wrist, constantly changing orientation. A tourbillon in a wristwatch provides, at best, marginal precision improvements — and even then, only in very specific test conditions. A well-regulated COSC chronometer can beat a tourbillon on a timing machine without breaking a sweat.</p>
-
-              <blockquote>"The tourbillon is not about precision. It never truly was. It is about the human desire to tame time itself — and to display that conquest openly on the wrist."</blockquote>
-
-              <h2>The Theatre of Mechanics</h2>
-              <p>And yet — the tourbillon endures, and not merely as a marketing conceit. There is something profoundly moving about observing a tourbillon in motion. Through the open dial, you witness a miniature cosmos of steel bridges, ruby jewels, and balance springs, all revolving in perfect choreography at sixty turns per hour. The finest examples — Patek Philippe's Reference 5216G, A. Lange &amp; Söhne's Tourbograph Perpetual — are among the most extraordinary mechanical objects ever created by human hands.</p>
-
-              <figure>
-                <img src="assets/images/bdetail-article-flying-tourbillon.png" alt="Luxury tourbillon watch movement" class="zoom-container" data-lightbox="assets/images/bdetail-article-flying-tourbillon.png" loading="lazy">
-                <figcaption>A contemporary flying tourbillon — the cage suspended without upper bridge, allowing an unobstructed view of the rotating escapement.</figcaption>
-              </figure>
-
-              <h2>The Economics of Desire</h2>
-              <p>A master watchmaker may spend 300 to 600 hours constructing a single tourbillon cage — a component that typically contains 70 to 100 parts and weighs less than 0.3 grams. This investment of human skill and time is not merely reflected in the price; it is the price. When you purchase a tourbillon, you are acquiring centuries of accumulated knowledge, embodied in a space smaller than a fingernail.</p>
-
-              <p>From an investment perspective, the calculus is compelling. The most desirable tourbillons from Patek Philippe, A. Lange &amp; Söhne, and F.P. Journe consistently appreciate beyond retail value. At Maison Lumière, we have observed an average appreciation of 18-22% per annum on desirable tourbillon references over the past decade — far exceeding conventional asset classes.</p>
-
-              <blockquote>"To own a great tourbillon is to participate in a lineage stretching from Breguet's Paris atelier to the present. It is not nostalgia. It is civilisation."</blockquote>
-
-              <h2>The Digital Question</h2>
-              <p>The smart watch industry invests billions in features that become obsolete within three years. A tourbillon created in Breguet's original workshop is still ticking today — and will continue to tick long after every computing device manufactured this year has been recycled into obsolescence. In a culture of disposability, the tourbillon represents a radical act of permanence.</p>
-
-              <p>This is why, at Maison Lumière, we continue to maintain a waiting list for the most desirable tourbillon references. Demand is not merely sustained — it is intensifying. The more we live in an ephemeral digital world, the more profoundly significant the enduring mechanical world becomes.</p>
-
-              <div class="article-tags" aria-label="Article tags">
-                <a href="blog.html" class="article-tag">Horology</a>
-                <a href="blog.html" class="article-tag">Tourbillon</a>
-                <a href="blog.html" class="article-tag">Swiss Watches</a>
-                <a href="blog.html" class="article-tag">Investment</a>
-                <a href="blog.html" class="article-tag">Patek Philippe</a>
-              </div>
+            <div class="article-body reveal" id="article-body">
+              <!-- Populated dynamically by assets/js/blog-detail.js -->
             </div>
 
             <!-- Author Card -->
-            <div class="author-card reveal delay-1">
-              <div class="author-avatar" style="overflow:hidden">
-                <img src="assets/images/bdetail-author-edmund.png" alt="Sir Edmund Ashworth" loading="lazy" style="width:100%;height:100%;object-fit:cover">
-              </div>
-              <div>
-                <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne-dark);margin-bottom:0.5rem">About the Author</p>
-                <h3 style="font-family:var(--font-display);font-size:1.25rem;margin-bottom:0.5rem">Sir Edmund Ashworth</h3>
-                <p style="font-size:0.875rem;color:var(--text-muted);line-height:1.65">Founder of Maison Lumière. Former head technician at Audemars Piguet Geneva. Fellow of the British Horological Institute, author of <em>Mechanical Cosmos</em> (2018), and collector of over 300 historic timepieces spanning four centuries.</p>
-              </div>
-            </div>
+            <div id="author-card"></div>
           </article>
 
           <!-- Sidebar -->
@@ -161,8 +167,8 @@
               </div>
             </div>
             <div style="background:var(--teal);border-radius:var(--radius-xl);padding:1.75rem;display:flex;flex-direction:column;gap:1rem" class="reveal delay-2">
-              <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--champagne)">Interested in Tourbillons?</p>
-              <p style="font-size:0.875rem;color:rgba(247,243,234,0.7);line-height:1.65">Our specialists can arrange a private viewing of available tourbillon references — including rare pieces not listed publicly.</p>
+              <p id="detail-sidebar-title" style="font-size:0.7rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--champagne)">Interested in Tourbillons?</p>
+              <p id="detail-sidebar-text" style="font-size:0.875rem;color:rgba(247,243,234,0.7);line-height:1.65">Our specialists can arrange a private viewing of available tourbillon references — including rare pieces not listed publicly.</p>
               <a href="contact.html" class="btn btn--primary btn--sm"><span>Private Enquiry</span></a>
             </div>
           </aside>
@@ -173,45 +179,16 @@
     <!-- SECTION 3: PULL QUOTE + IMAGE BLOCK -->
     <section class="section section--espresso" style="background:var(--espresso)" aria-label="Article highlight">
       <div class="container">
-        <div style="text-align:center;max-width:700px;margin-inline:auto" class="reveal">
-          <p style="font-family:var(--font-display);font-size:clamp(1.5rem,3.5vw,2.5rem);font-style:italic;color:var(--ivory);line-height:1.35">"In a world of disposable technology, the tourbillon is a declaration of permanence — and a reminder that true luxury is measured in centuries, not software updates."</p>
-          <p style="margin-top:1.5rem;font-size:0.75rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--champagne-dark)">— Sir Edmund Ashworth, Maison Lumière</p>
+        <div style="text-align:center;max-width:700px;margin-inline:auto" class="reveal" id="pull-quote">
+          <!-- Populated dynamically by assets/js/blog-detail.js -->
         </div>
       </div>
     </section>
 
     <!-- SECTION 4: AUTHOR DETAILS + TAGS (rich) -->
     <section class="section" aria-label="Article metadata">
-      <div class="container">
-        <div class="responsive-split">
-          <div class="reveal-left">
-            <span class="eyebrow">About the Curator</span>
-            <h2 style="font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);margin-top:1rem;margin-bottom:1rem">Sir Edmund<br><em style="font-style:italic">Ashworth</em></h2>
-            <p style="color:var(--text-muted);line-height:1.75;margin-bottom:1.5rem">With over four decades immersed in the finest mechanical watchmaking, Edmund has personally handled more than 15,000 timepieces — from 18th-century fusée pocket watches to contemporary grand complications. His monograph <em>Mechanical Cosmos</em> is considered essential reading in horological circles worldwide.</p>
-            <div style="display:flex;gap:0.75rem">
-              <a href="blog.html" class="btn btn--teal btn--sm"><span>More Articles</span></a>
-              <a href="about.html" class="btn btn--outline btn--sm"><span>About the Maison</span></a>
-            </div>
-          </div>
-          <div class="reveal-right responsive-grid-2">
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--champagne-dark)">42</p>
-              <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Years Experience</p>
-            </div>
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--champagne-dark)">15k+</p>
-              <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Pieces Handled</p>
-            </div>
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--champagne-dark)">3</p>
-              <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Published Books</p>
-            </div>
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center">
-              <p style="font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--champagne-dark)">12</p>
-              <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted)">Industry Awards</p>
-            </div>
-          </div>
-        </div>
+      <div class="container" id="curator-section">
+        <!-- Populated dynamically by assets/js/blog-detail.js -->
       </div>
     </section>
 
@@ -222,23 +199,8 @@
           <span class="eyebrow">Continue Reading</span>
           <h2 class="section-title" id="related-title" style="margin-top:1rem">Related<br><em style="font-style:italic">Articles</em></h2>
         </div>
-        <div class="related-grid">
-          <a href="blog-detail.html" class="blog-card reveal delay-1">
-            <div class="blog-card__media"><img src="assets/images/bdetail-related-diamond.png" alt="Diamond article" loading="lazy"></div>
-            <div class="blog-card__body">
-              <span class="blog-card__tag">High Jewellery</span>
-              <h3 class="blog-card__title">The Four Cs Reimagined: How Modern Gemology Goes Beyond Clarity</h3>
-              <div class="blog-card__meta"><span>Lady Caroline Ashworth</span><div class="blog-card__meta-dot"></div><span>July 28, 2026</span></div>
-            </div>
-          </a>
-          <a href="blog-detail.html" class="blog-card reveal delay-2">
-            <div class="blog-card__media"><img src="assets/images/bdetail-related-gold.png" alt="Gold investment" loading="lazy"></div>
-            <div class="blog-card__body">
-              <span class="blog-card__tag">Investment</span>
-              <h3 class="blog-card__title">Why Gold Jewellery Remains the Wisest Luxury Investment of 2026</h3>
-              <div class="blog-card__meta"><span>James Whitfield</span><div class="blog-card__meta-dot"></div><span>July 14, 2026</span></div>
-            </div>
-          </a>
+        <div class="related-grid" id="related-grid">
+          <!-- Populated dynamically by assets/js/blog-detail.js -->
         </div>
       </div>
     </section>
@@ -283,12 +245,75 @@
   <footer class="footer" role="contentinfo">
     <div class="container container--wide">
       <div class="footer__top">
-        <div class="footer__brand"><a href="index.html" class="footer__brand-logo">Maison Lumière</a><p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
-        <div><h3 class="footer__col-title">Collections</h3><ul class="footer__nav"><li><a href="index.html" class="footer__nav-link">Luxury Watches</a></li><li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li><li><a href="services.html" class="footer__nav-link">Services</a></li></ul></div>
-        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">Our Story</a></li><li><a href="blog.html" class="footer__nav-link">The Journal</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
-        <div><h3 class="footer__col-title">Newsletter</h3><form class="newsletter-form" style="flex-direction:column;gap:0.75rem"><input type="email" class="form-control" placeholder="Your email" aria-label="Email" required><button type="submit" class="btn btn--primary btn--sm"><span>Join</span></button></form></div>
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-logo">Maison Lumière</a>
+          <p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery. A curated sanctuary where every piece tells an extraordinary story.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter / X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Collections -->
+        <div>
+          <h3 class="footer__col-title">Collections</h3>
+          <ul class="footer__nav" role="list">
+            <li><a href="index.html#watches" class="footer__nav-link">Luxury Watches</a></li>
+            <li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li>
+            <li><a href="index.html#gold" class="footer__nav-link">Gold &amp; Silver</a></li>
+            <li><a href="index.html#gifting" class="footer__nav-link">Gifting</a></li>
+            <li><a href="services.html" class="footer__nav-link">Repair Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Maison -->
+        <div>
+          <h3 class="footer__col-title">Maison</h3>
+          <ul class="footer__nav" role="list">
+            <li><a href="index.html" class="footer__nav-link">Home</a></li>
+            <li><a href="home2.html" class="footer__nav-link">Home 2</a></li>
+            <li><a href="about.html" class="footer__nav-link">About</a></li>
+            <li><a href="services.html" class="footer__nav-link">Services</a></li>
+            <li><a href="blog.html" class="footer__nav-link">Journal</a></li>
+            <li><a href="contact.html" class="footer__nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h3 class="footer__col-title">The Private List</h3>
+          <p style="font-size:0.875rem;color:rgba(247,243,234,0.4);line-height:1.7;margin-bottom:1.25rem">Receive exclusive previews, private sale invitations, and horological insights before anyone else.</p>
+          <form class="newsletter-form" aria-label="Newsletter subscription">
+            <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address" required>
+            <button type="submit" class="btn btn--primary btn--sm" aria-label="Subscribe">
+              <span>Join</span>
+            </button>
+          </form>
+        </div>
+
       </div>
-      <div class="footer__bottom"><p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p><nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a><a href="sitemap.html" class="footer__legal-link">Sitemap</a></nav></div>
+
+      <!-- Footer bottom -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Maison Lumière. All rights reserved. Established 1987, London.</p>
+        <nav class="footer__legal" aria-label="Legal links">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html" class="footer__legal-link">Terms &amp; Conditions</a>
+          <a href="sitemap.html" class="footer__legal-link">Sitemap</a>
+        </nav>
+      </div>
     </div>
   </footer>
 
@@ -297,5 +322,7 @@
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/animations.js" defer></script>
   <script src="assets/js/components.js" defer></script>
+  <script src="assets/js/blog-data.js" defer></script>
+  <script src="assets/js/blog-detail.js" defer></script>
 </body>
 </html>

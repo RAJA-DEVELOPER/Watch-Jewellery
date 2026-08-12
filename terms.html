@@ -30,35 +30,93 @@
   <div class="cursor-ring" aria-hidden="true"></div>
 
   <header>
-    <nav class="navbar scrolled" role="navigation" aria-label="Main navigation">
+    <nav class="navbar transparent" role="navigation" aria-label="Main navigation" data-transparent>
       <div class="navbar__inner">
-        <a href="index.html" class="navbar__logo"><span class="navbar__logo-text">Maison Lumière</span><span class="navbar__logo-sub">Watches &amp; Jewellery</span></a>
+
+        <!-- Logo -->
+        <a href="index.html" class="navbar__logo" aria-label="Maison Lumière Home">
+          <span class="navbar__logo-text">Maison Lumière</span>
+          <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+        </a>
+
+        <!-- Desktop Nav -->
         <ul class="navbar__nav" role="list">
-          <li><a href="index.html" class="navbar__nav-link">Home</a></li>
-          <li><a href="home2.html" class="navbar__nav-link">Home 2</a></li>
-          <li><a href="about.html" class="navbar__nav-link">About</a></li>
-          <li><a href="services.html" class="navbar__nav-link">Services</a></li>
-          <li><a href="blog.html" class="navbar__nav-link">Journal</a></li>
-          <li><a href="contact.html" class="navbar__nav-link">Contact</a></li>
+          <li class="navbar__nav-item">
+            <a href="index.html" class="navbar__nav-link">Home</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="home2.html" class="navbar__nav-link">Home 2</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="about.html" class="navbar__nav-link">About</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="services.html" class="navbar__nav-link">Services</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="blog.html" class="navbar__nav-link">Journal</a>
+          </li>
+          <li class="navbar__nav-item">
+            <a href="contact.html" class="navbar__nav-link">Contact</a>
+          </li>
         </ul>
+
+        <!-- Actions -->
         <div class="navbar__actions">
-          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme"><span class="theme-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span></button>
-          <a href="contact.html" class="btn btn--primary btn--sm"><span>Contact</span></a>
-          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+          <!-- Theme toggle -->
+          <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme" id="themeToggle">
+            <span class="theme-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+
+          <!-- RTL toggle -->
+          <button class="toggle-btn" data-rtl-toggle aria-label="Toggle RTL/LTR" id="rtlToggle">RTL</button>
+
+          <!-- CTA -->
+          <a href="contact.html" class="btn btn--primary btn--sm">
+            <span>Book Visit</span>
+          </a>
+
+          <!-- Hamburger -->
+          <button class="navbar__hamburger" aria-label="Open menu" aria-expanded="false" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
         </div>
+
       </div>
     </nav>
-    <div class="navbar__mobile-menu" role="dialog">
-      <a href="index.html" class="navbar__mobile-link">Home</a>
-      <a href="home2.html" class="navbar__mobile-link">Home 2</a>
-      <a href="about.html" class="navbar__mobile-link">About</a>
-      <a href="contact.html" class="navbar__mobile-link">Contact</a>
-      <div class="navbar__mobile-controls"><button class="toggle-btn" data-theme-toggle>Theme</button></div>
+
+    <!-- Mobile Menu -->
+    <div class="navbar__mobile-menu" role="dialog" aria-label="Mobile navigation">
+      <div class="navbar__mobile-item">
+        <a href="index.html" class="navbar__mobile-link">Home</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="home2.html" class="navbar__mobile-link">Home 2</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="about.html" class="navbar__mobile-link">About</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="services.html" class="navbar__mobile-link">Services</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="blog.html" class="navbar__mobile-link">Journal</a>
+      </div>
+      <div class="navbar__mobile-item">
+        <a href="contact.html" class="navbar__mobile-link">Contact</a>
+      </div>
+      <div class="navbar__mobile-controls">
+        <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center">
+          <span>Book Visit</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main id="main-content" style="padding-top:var(--navbar-height)">
-    <section style="background:var(--espresso);padding-block:5rem 4rem;text-align:center" aria-label="Terms hero">
+  <main id="main-content">
+    <section style="background:var(--espresso);padding-top:calc(var(--navbar-height) + 2rem);padding-block-end:4rem;text-align:center" aria-label="Terms hero">
       <div class="container">
         <nav style="display:flex;align-items:center;justify-content:center;gap:0.5rem;font-size:0.75rem;color:rgba(247,243,234,0.4);margin-bottom:1.5rem" aria-label="Breadcrumb">
           <a href="index.html" style="color:rgba(247,243,234,0.4);transition:color 0.2s">Home</a>
@@ -170,12 +228,75 @@
   <footer class="footer" role="contentinfo">
     <div class="container container--wide">
       <div class="footer__top">
-        <div class="footer__brand"><a href="index.html" class="footer__brand-logo">Maison Lumière</a><p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery.</p></div>
-        <div><h3 class="footer__col-title">Legal</h3><ul class="footer__nav"><li><a href="privacy.html" class="footer__nav-link">Privacy Policy</a></li><li><a href="terms.html" class="footer__nav-link">Terms &amp; Conditions</a></li><li><a href="sitemap.html" class="footer__nav-link">Sitemap</a></li></ul></div>
-        <div><h3 class="footer__col-title">Maison</h3><ul class="footer__nav"><li><a href="about.html" class="footer__nav-link">About</a></li><li><a href="contact.html" class="footer__nav-link">Contact</a></li></ul></div>
-        <div></div>
+
+        <!-- Brand -->
+        <div class="footer__brand">
+          <a href="index.html" class="footer__brand-logo">Maison Lumière</a>
+          <p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery. A curated sanctuary where every piece tells an extraordinary story.</p>
+          <div class="footer__social" aria-label="Social media links">
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Twitter / X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="footer__social-link" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Collections -->
+        <div>
+          <h3 class="footer__col-title">Collections</h3>
+          <ul class="footer__nav" role="list">
+            <li><a href="index.html#watches" class="footer__nav-link">Luxury Watches</a></li>
+            <li><a href="index.html#diamonds" class="footer__nav-link">Diamond Jewellery</a></li>
+            <li><a href="index.html#gold" class="footer__nav-link">Gold &amp; Silver</a></li>
+            <li><a href="index.html#gifting" class="footer__nav-link">Gifting</a></li>
+            <li><a href="services.html" class="footer__nav-link">Repair Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Maison -->
+        <div>
+          <h3 class="footer__col-title">Maison</h3>
+          <ul class="footer__nav" role="list">
+            <li><a href="index.html" class="footer__nav-link">Home</a></li>
+            <li><a href="home2.html" class="footer__nav-link">Home 2</a></li>
+            <li><a href="about.html" class="footer__nav-link">About</a></li>
+            <li><a href="services.html" class="footer__nav-link">Services</a></li>
+            <li><a href="blog.html" class="footer__nav-link">Journal</a></li>
+            <li><a href="contact.html" class="footer__nav-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h3 class="footer__col-title">The Private List</h3>
+          <p style="font-size:0.875rem;color:rgba(247,243,234,0.4);line-height:1.7;margin-bottom:1.25rem">Receive exclusive previews, private sale invitations, and horological insights before anyone else.</p>
+          <form class="newsletter-form" aria-label="Newsletter subscription">
+            <input type="email" class="form-control" placeholder="Your email address" aria-label="Email address" required>
+            <button type="submit" class="btn btn--primary btn--sm" aria-label="Subscribe">
+              <span>Join</span>
+            </button>
+          </form>
+        </div>
+
       </div>
-      <div class="footer__bottom"><p class="footer__copyright">© 2026 Maison Lumière. All rights reserved.</p><nav class="footer__legal"><a href="privacy.html" class="footer__legal-link">Privacy</a><a href="terms.html" class="footer__legal-link">Terms</a><a href="sitemap.html" class="footer__legal-link">Sitemap</a></nav></div>
+
+      <!-- Footer bottom -->
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 Maison Lumière. All rights reserved. Established 1987, London.</p>
+        <nav class="footer__legal" aria-label="Legal links">
+          <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+          <a href="terms.html" class="footer__legal-link">Terms &amp; Conditions</a>
+          <a href="sitemap.html" class="footer__legal-link">Sitemap</a>
+        </nav>
+      </div>
     </div>
   </footer>
 

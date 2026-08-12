@@ -157,6 +157,7 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--navbar-height);
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {

@@ -24,15 +24,16 @@
     .collections-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto;
+      grid-template-rows: repeat(2, 1fr);
       gap: var(--space-5);
+      height: clamp(560px, 72vh, 680px);
     }
     .collections-grid .editorial-card:first-child {
       grid-row: 1 / 3;
-      min-height: 620px;
+      min-height: 0;
     }
     .collections-grid .editorial-card:not(:first-child) {
-      min-height: 290px;
+      min-height: 0;
     }
 
     /* New Arrivals */
@@ -145,10 +146,14 @@
       .collections-grid {
         grid-template-columns: 1fr;
         grid-template-rows: unset;
+        height: auto;
       }
       .collections-grid .editorial-card:first-child {
         grid-row: unset;
         min-height: 380px;
+      }
+      .collections-grid .editorial-card:not(:first-child) {
+        min-height: 290px;
       }
       .gifting-split {
         grid-template-columns: 1fr;
@@ -224,11 +229,6 @@
 
         <!-- Actions -->
         <div class="navbar__actions">
-          <!-- Search -->
-          <button class="navbar__icon-btn" aria-label="Search" id="searchBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </button>
-
           <!-- Theme toggle -->
           <button class="navbar__icon-btn" data-theme-toggle aria-label="Toggle theme" id="themeToggle">
             <span class="theme-icon">
@@ -256,7 +256,7 @@
     <!-- Mobile Menu -->
     <div class="navbar__mobile-menu" role="dialog" aria-label="Mobile navigation">
       <div class="navbar__mobile-item">
-        <a href="index.html" class="navbar__mobile-link">Home</a>
+        <a href="index.html" class="navbar__mobile-link active">Home</a>
       </div>
       <div class="navbar__mobile-item">
         <a href="home2.html" class="navbar__mobile-link">Home 2</a>
@@ -274,13 +274,9 @@
         <a href="contact.html" class="navbar__mobile-link">Contact</a>
       </div>
       <div class="navbar__mobile-controls">
-        <button class="toggle-btn" data-theme-toggle>
-          <span class="theme-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </span>
-          Theme
-        </button>
-        <button class="toggle-btn" data-rtl-toggle>RTL</button>
+        <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center">
+          <span>Book Visit</span>
+        </a>
       </div>
     </div>
   </header>
@@ -338,7 +334,7 @@
         <!-- Slide 3 — Collection -->
         <article class="hero-slide" role="listitem" aria-label="Watch Collection">
           <div class="hero-slide__bg">
-            <img src="assets/images/idx-hero-showroom.png" alt="Premium watch collection display" loading="lazy">
+            <img src="https://plus.unsplash.com/premium_photo-1661645473770-90d750452fa0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGpld2Vscnl8ZW58MHx8MHx8fDA%3D" alt="Premium watch collection display" loading="lazy">
           </div>
           <div class="hero-slide__overlay" aria-hidden="true"></div>
           <div class="hero-slide__content">
@@ -371,7 +367,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
         <button class="hero-slider__arrow hero-slider__arrow--next" aria-label="Next slide">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 15 6"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
 
@@ -435,7 +431,7 @@
           <!-- Large card — Watches -->
           <article class="editorial-card tilt-card reveal-left">
             <div class="editorial-card__bg zoom-container">
-              <img src="assets/images/idx-editorial-tourbillon.png" alt="Luxury watch collection" loading="lazy">
+              <img src="https://plus.unsplash.com/premium_photo-1674255466849-b23fc5f5d3eb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGpld2Vscnl8ZW58MHx8MHx8fDA%3D" alt="Luxury watch collection" loading="lazy">
             </div>
             <div class="editorial-card__overlay" aria-hidden="true"></div>
             <div class="editorial-card__body">
@@ -504,16 +500,8 @@
           <!-- Card 1 -->
           <article class="product-card tilt-card reveal delay-1" data-lightbox="assets/images/idx-product-tourbillon.png" data-lightbox-alt="Lumière Tourbillon">
             <div class="product-card__media zoom-container">
-              <img src="assets/images/idx-product-tourbillon.png" alt="Lumière Tourbillon Perpetual" loading="lazy">
+              <img src="https://plus.unsplash.com/premium_photo-1681276169450-4504a2442173?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGpld2Vscnl8ZW58MHx8MHx8fDA%3D" alt="Lumière Tourbillon Perpetual" loading="lazy">
               <span class="product-card__badge product-card__badge--new">New</span>
-              <div class="product-card__actions" aria-label="Product actions">
-                <button class="product-card__action-btn" aria-label="Add to wishlist">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-tourbillon.png">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-              </div>
             </div>
             <div class="product-card__body">
               <span class="product-card__brand">Maison Lumière</span>
@@ -533,14 +521,6 @@
             <div class="product-card__media zoom-container">
               <img src="assets/images/idx-product-diamond-solitaire.png" alt="Diamond Solitaire Ring" loading="lazy">
               <span class="product-card__badge">Exclusive</span>
-              <div class="product-card__actions">
-                <button class="product-card__action-btn" aria-label="Add to wishlist">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-diamond-solitaire.png">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-              </div>
             </div>
             <div class="product-card__body">
               <span class="product-card__brand">High Jewellery</span>
@@ -559,14 +539,6 @@
           <article class="product-card tilt-card reveal delay-3" data-lightbox="assets/images/idx-product-gold-cuff.png" data-lightbox-alt="Gold Bangle">
             <div class="product-card__media zoom-container">
               <img src="assets/images/idx-product-gold-cuff.png" alt="18k Gold bangle collection" loading="lazy">
-              <div class="product-card__actions">
-                <button class="product-card__action-btn" aria-label="Add to wishlist">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-gold-cuff.png">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-              </div>
             </div>
             <div class="product-card__body">
               <span class="product-card__brand">Gold Collection</span>
@@ -584,16 +556,8 @@
           <!-- Card 4 -->
           <article class="product-card tilt-card reveal delay-4" data-lightbox="assets/images/idx-product-gmt-chrono.png">
             <div class="product-card__media zoom-container">
-              <img src="assets/images/idx-product-gmt-chrono.png" alt="Sports chronograph watch" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fGpld2Vscnl8ZW58MHx8MHx8fDA%3D" alt="Sports chronograph watch" loading="lazy">
               <span class="product-card__badge product-card__badge--new">Limited</span>
-              <div class="product-card__actions">
-                <button class="product-card__action-btn" aria-label="Add to wishlist">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-                </button>
-                <button class="product-card__action-btn" aria-label="Quick view" data-lightbox="assets/images/idx-product-gmt-chrono.png">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </button>
-              </div>
             </div>
             <div class="product-card__body">
               <span class="product-card__brand">Sports Chronograph</span>
@@ -665,7 +629,7 @@
           <div class="divider"></div>
         </div>
 
-        <!-- Testimonial Slider -->
+        <!-- Testimonials -->
         <div class="testimonial-slider" id="testimonialSlider">
           <div class="testimonial-slider__track">
             <div class="testimonial-slider__slide">
@@ -708,18 +672,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:3rem;flex-wrap:wrap;gap:1rem">
-          <div style="display:flex;gap:0.75rem" data-tslider-dots></div>
-          <div style="display:flex;gap:0.75rem">
-            <button data-tslider-prev class="btn btn--outline btn--icon" aria-label="Previous testimonial">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button data-tslider-next class="btn btn--outline btn--icon" aria-label="Next testimonial">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
           </div>
         </div>
       </div>
@@ -828,10 +780,11 @@
         <div>
           <h3 class="footer__col-title">Maison</h3>
           <ul class="footer__nav" role="list">
-            <li><a href="about.html" class="footer__nav-link">Our Story</a></li>
-            <li><a href="about.html#craftsmanship" class="footer__nav-link">Craftsmanship</a></li>
-            <li><a href="blog.html" class="footer__nav-link">The Journal</a></li>
-            <li><a href="about.html#team" class="footer__nav-link">Meet the Team</a></li>
+            <li><a href="index.html" class="footer__nav-link">Home</a></li>
+            <li><a href="home2.html" class="footer__nav-link">Home 2</a></li>
+            <li><a href="about.html" class="footer__nav-link">About</a></li>
+            <li><a href="services.html" class="footer__nav-link">Services</a></li>
+            <li><a href="blog.html" class="footer__nav-link">Journal</a></li>
             <li><a href="contact.html" class="footer__nav-link">Contact</a></li>
           </ul>
         </div>

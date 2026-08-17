@@ -83,10 +83,26 @@
 
 .navbar__logo {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.7rem;
   line-height: 1;
   flex-shrink: 0;
   text-decoration: none;
+}
+
+.navbar__logo-mark {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+.navbar__logo-titles {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  min-width: 0;
 }
 
 .navbar__logo-text {
@@ -1387,6 +1403,7 @@ select.form-control {
 
 .faq-item.open .faq-icon svg {
   transform: rotate(45deg);
+  color: var(--obsidian);
 }
 
 .faq-answer {
@@ -1562,8 +1579,18 @@ select.form-control {
   font-style: italic;
   color: var(--champagne);
   letter-spacing: 0.05em;
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
   margin-bottom: var(--space-4);
+}
+
+.footer__brand-mark {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  opacity: 0.95;
 }
 
 .footer__brand-desc {

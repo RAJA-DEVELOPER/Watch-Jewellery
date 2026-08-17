@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="About Maison Lumière — our story, heritage, craftsmanship philosophy, team, and awards since 1987.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <title>About Us | Maison Lumière</title>
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -28,8 +30,9 @@
     .award-org { font-size: var(--text-sm); color: var(--text-muted); }
     .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
     .philosophy-item { padding: var(--space-8); background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-4); }
-    .philosophy-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--champagne-dark), var(--champagne)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; }
+    .philosophy-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--champagne-dark), var(--champagne)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; align-self: center; }
     .philosophy-icon svg { width: 26px; height: 26px; color: var(--obsidian); }
+    .philosophy-item h3 { text-align: center; }
     @media (max-width: 1100px) { .team-grid { grid-template-columns: repeat(2, 1fr); } .awards-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) { .team-grid { grid-template-columns: 1fr; } .philosophy-grid { grid-template-columns: 1fr; } }
     @media (max-width: 600px) { .awards-grid { grid-template-columns: 1fr; } }
@@ -48,8 +51,11 @@
 
         <!-- Logo -->
         <a href="index.html" class="navbar__logo" aria-label="Maison Lumière Home">
-          <span class="navbar__logo-text">Maison Lumière</span>
-          <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+          <img class="navbar__logo-mark" src="assets/images/logo-mark.svg" alt="" width="32" height="32">
+          <span class="navbar__logo-titles">
+            <span class="navbar__logo-text">Maison Lumière</span>
+            <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+          </span>
         </a>
 
         <!-- Desktop Nav -->
@@ -135,11 +141,6 @@
       <div class="page-hero__bg"><img src="https://images.unsplash.com/photo-1511370235399-1802cae1d32f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdhdGNofGVufDB8fDB8fHww" alt="Master watchmaker" loading="eager"></div>
       <div class="page-hero__overlay" aria-hidden="true"></div>
       <div class="page-hero__content">
-        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a>
-          <span class="page-hero__breadcrumb-sep" aria-hidden="true">/</span>
-          <span class="page-hero__breadcrumb-current">About</span>
-        </nav>
         <h1 class="page-hero__title reveal">Our Story</h1>
         <p class="page-hero__subtitle reveal delay-1">Four decades of passion for the extraordinary — where fine watchmaking meets the art of jewellery.</p>
       </div>
@@ -332,7 +333,7 @@
 
         <!-- Brand -->
         <div class="footer__brand">
-          <a href="index.html" class="footer__brand-logo">Maison Lumière</a>
+          <a href="index.html" class="footer__brand-logo"><img class="footer__brand-mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">Maison Lumière</a>
           <p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery. A curated sanctuary where every piece tells an extraordinary story.</p>
           <div class="footer__social" aria-label="Social media links">
             <a href="#" class="footer__social-link" aria-label="Instagram">

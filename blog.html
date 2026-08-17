@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="The Maison Lumière Journal — stories of extraordinary watches, jewellery, craftsmanship, and the luxury of time.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/logo-mark.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <title>The Journal | Maison Lumière</title>
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
@@ -27,6 +29,14 @@
     .recent-post__title { font-family: var(--font-display); font-size: 0.9rem; line-height: 1.3; transition: color 0.2s; }
     .recent-post:hover .recent-post__title { color: var(--champagne-dark); }
     .recent-post__date { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem; }
+    .sidebar-widget .newsletter-form .form-control { height: 56px; padding: 0 1.25rem; font-size: 1rem; }
+    [data-theme="light"] .sidebar-widget .newsletter-form .form-control {
+      background: var(--bg-secondary);
+      border-color: var(--border);
+      color: var(--text-primary);
+    }
+    [data-theme="light"] .sidebar-widget .newsletter-form .form-control::placeholder { color: var(--text-muted); }
+    [data-theme="light"] .sidebar-widget .newsletter-form .form-control:focus { border-color: var(--champagne-dark); }
     @media (max-width: 1000px) { .blog-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
     @media (max-width: 768px) { .blog-featured-card { grid-template-columns: 1fr; } .blog-grid { grid-template-columns: 1fr; } }
   </style>
@@ -44,8 +54,11 @@
 
         <!-- Logo -->
         <a href="index.html" class="navbar__logo" aria-label="Maison Lumière Home">
-          <span class="navbar__logo-text">Maison Lumière</span>
-          <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+          <img class="navbar__logo-mark" src="assets/images/logo-mark.svg" alt="" width="32" height="32">
+          <span class="navbar__logo-titles">
+            <span class="navbar__logo-text">Maison Lumière</span>
+            <span class="navbar__logo-sub">Watches &amp; Jewellery</span>
+          </span>
         </a>
 
         <!-- Desktop Nav -->
@@ -131,10 +144,6 @@
       <div class="page-hero__bg"><img src="https://images.unsplash.com/photo-1600003014755-ba31aa59c4b6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fHdhdGNofGVufDB8fDB8fHww" alt="Luxury watches" loading="eager"></div>
       <div class="page-hero__overlay" aria-hidden="true"></div>
       <div class="page-hero__content">
-        <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-          <a href="index.html">Home</a><span class="page-hero__breadcrumb-sep">/</span>
-          <span class="page-hero__breadcrumb-current">The Journal</span>
-        </nav>
         <h1 class="page-hero__title reveal">The Journal</h1>
         <p class="page-hero__subtitle reveal delay-1">Stories of extraordinary watches, jewellery, craftsmanship, and the luxury of time.</p>
       </div>
@@ -249,7 +258,7 @@
               <h3 class="sidebar-widget__title">Join Our Journal</h3>
               <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.65;margin-bottom:1rem">Receive exclusive articles and private sale previews direct to your inbox.</p>
               <form class="newsletter-form" style="flex-direction:column;gap:0.75rem" aria-label="Newsletter">
-                <input type="email" class="form-control" placeholder="Your email address" aria-label="Email" required>
+                <input type="email" class="form-control" placeholder="Your email address" aria-label="Email" required style="height:56px !important;padding:0 1.25rem !important;font-size:1rem">
                 <button type="submit" class="btn btn--primary btn--sm" style="width:100%"><span>Subscribe</span></button>
               </form>
             </div>
@@ -335,7 +344,7 @@
 
         <!-- Brand -->
         <div class="footer__brand">
-          <a href="index.html" class="footer__brand-logo">Maison Lumière</a>
+          <a href="index.html" class="footer__brand-logo"><img class="footer__brand-mark" src="assets/images/logo-mark.svg" alt="" width="40" height="40">Maison Lumière</a>
           <p class="footer__brand-desc">London's most exclusive destination for Swiss timepieces and fine jewellery. A curated sanctuary where every piece tells an extraordinary story.</p>
           <div class="footer__social" aria-label="Social media links">
             <a href="#" class="footer__social-link" aria-label="Instagram">
